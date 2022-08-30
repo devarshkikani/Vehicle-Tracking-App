@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vehicletracking/pages/payment/payment_screen.dart';
 import 'package:vehicletracking/pages/subscribed/subscription_details.dart';
 import 'package:vehicletracking/utils/app_assets.dart';
 import 'package:vehicletracking/utils/app_colors.dart';
@@ -641,7 +642,9 @@ class _GotoYourSubscriptionScreenState
                     child: AppFillButton(
                       title: 'Proceed',
                       radius: 10,
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(() => const PaymentScreen());
+                      },
                     ),
                   ),
                 ],

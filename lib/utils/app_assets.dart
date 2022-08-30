@@ -13,6 +13,12 @@ class AppAsset {
   static const logo = 'assets/image/png/logo.png';
   static const bottomLine = 'assets/image/png/bottomLine.png';
   static const loginImage = 'assets/image/png/login_image.png';
+  static const creditCard = 'assets/image/png/credit_card.png';
+  static const debitCard = 'assets/image/png/debit_Card.png';
+  static const visa = 'assets/image/png/visa.png';
+  static const masterCard = 'assets/image/png/mastercard.png';
+  static const paymentbackground = 'assets/image/png/payment_background.png';
+
   static const logInImage3 = 'assets/image/png/logInImage3.png';
   static const subscriptionDetails = 'assets/image/png/subscriptionDetails.png';
   static const subscriptionTopImage =

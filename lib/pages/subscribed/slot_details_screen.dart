@@ -187,7 +187,7 @@ class _SlotDetailsScreenState extends State<SlotDetailsScreen> {
   Widget montlySubscriptionWidget() {
     return Container(
       width: Get.width,
-      height: 80,
+      height: 85,
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
         color: whiteColor,

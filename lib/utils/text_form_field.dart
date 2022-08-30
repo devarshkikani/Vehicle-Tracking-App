@@ -3,16 +3,16 @@ import 'package:flutter/services.dart';
 import 'package:vehicletracking/utils/app_colors.dart';
 import 'package:vehicletracking/utils/validators.dart';
 
-Widget newTextFormFiled({
-  required final String labelText,
-  required final TextEditingController controller,
-}) {
+Widget newTextFormFiled(
+    {required final String labelText,
+    required final TextEditingController controller,
+    borderColor}) {
   return TextFormField(
     controller: controller,
     decoration: InputDecoration(
       labelText: labelText,
       enabledBorder: OutlineInputBorder(
-        borderSide: const BorderSide(color: borderGreyColor),
+        borderSide: BorderSide(color: borderColor ?? borderGreyColor),
         borderRadius: BorderRadius.circular(10),
       ),
       focusedBorder: OutlineInputBorder(
