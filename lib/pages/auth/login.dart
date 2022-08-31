@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vehicletracking/pages/auth/forgot_password_screen.dart';
 import 'package:vehicletracking/pages/auth/sign_up.dart';
 import 'package:vehicletracking/pages/subscribed/slot_details_screen.dart';
 import 'package:vehicletracking/utils/app_static_decoration.dart';
@@ -93,11 +94,17 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               customHeight(13),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Text("Forgot Password?")),
+                  alignment: Alignment.centerRight,
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.to(() => const ForgotPasswordScreen());
+                    },
+                    child: const Text("Forgot Password?"),
+                  ),
+                ),
               ),
               height25,
               Padding(

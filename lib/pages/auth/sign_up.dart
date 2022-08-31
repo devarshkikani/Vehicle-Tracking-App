@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vehicletracking/pages/auth/login.dart';
+import 'package:vehicletracking/pages/auth/set_password.dart';
 import 'package:vehicletracking/utils/app_static_decoration.dart';
 import 'package:vehicletracking/widgets/app_button.dart';
 import 'package:vehicletracking/widgets/app_comman_widget.dart';
@@ -100,7 +101,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   labelText: "TRN (Tax Registration Number)",
                 ),
                 height15,
-                AppFillButton(title: "Next".toUpperCase(), onTap: () {}),
+                AppFillButton(
+                    title: "Next".toUpperCase(),
+                    onTap: () {
+                      Get.to(() => const SetPassword());
+                    }),
                 height15,
                 appRichText("Already have an account?  ", "LogIn", onTap: () {
                   Get.offAll(() => const LoginScreen());

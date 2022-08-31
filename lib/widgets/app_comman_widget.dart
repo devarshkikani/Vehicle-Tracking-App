@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import '../utils/app_colors.dart';
 
 Widget appRichText(String title, String subTitle,
-    {void Function()? onTap, Color? titleColor, Color? subTitleColor}) {
+    {void Function()? onTap,
+    Color? titleColor,
+    Color? subTitleColor,
+    TextDecoration? decoration}) {
   return RichText(
     // Controls visual overflow
     overflow: TextOverflow.clip,
@@ -20,7 +23,10 @@ Widget appRichText(String title, String subTitle,
         TextSpan(
             text: subTitle,
             recognizer: TapGestureRecognizer()..onTap = onTap,
-            style: TextStyle(color: subTitleColor ?? appColor)),
+            style: TextStyle(
+              color: subTitleColor ?? appColor,
+              decoration: decoration,
+            )),
       ],
     ),
   );

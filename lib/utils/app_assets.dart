@@ -18,6 +18,7 @@ class AppAsset {
   static const visa = 'assets/image/png/visa.png';
   static const masterCard = 'assets/image/png/mastercard.png';
   static const paymentbackground = 'assets/image/png/payment_background.png';
+  static const resetPasswrod = 'assets/image/png/reset_passwrod.png';
 
   static const logInImage3 = 'assets/image/png/logInImage3.png';
   static const subscriptionDetails = 'assets/image/png/subscriptionDetails.png';
@@ -35,6 +36,7 @@ class AppAsset {
   static const history = 'assets/image/png/history.png';
   static const logout = 'assets/image/png/logout.png';
   static const editProfile = 'assets/image/png/edit_profile.png';
+  static const setPassword = 'assets/image/png/set_password.png';
 
   /// Images
 
@@ -42,6 +44,7 @@ class AppAsset {
 
   //Svg Images
   static const editIcon = 'assets/image/svg/edit_icon.svg';
+  static const emailIcon = 'assets/image/svg/email_icon.svg';
 
   //Png Icons
 }
