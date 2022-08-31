@@ -144,7 +144,9 @@ class _SetPasswordState extends State<SetPassword> {
                           title: 'Create Account',
                           radius: 15,
                           onTap: () {
-                            Get.offAll(() => const SlotDetailsScreen());
+                            Get.offAll(() => const SlotDetailsScreen(
+                                  isSubscribed: false,
+                                ));
                           },
                         ),
                         height20,

@@ -19,6 +19,8 @@ class AppAsset {
   static const masterCard = 'assets/image/png/mastercard.png';
   static const paymentbackground = 'assets/image/png/payment_background.png';
   static const resetPasswrod = 'assets/image/png/reset_passwrod.png';
+  static const newcar = 'assets/image/png/newcar.png';
+  static const bike = 'assets/image/png/bike.png';
 
   static const logInImage3 = 'assets/image/png/logInImage3.png';
   static const subscriptionDetails = 'assets/image/png/subscriptionDetails.png';

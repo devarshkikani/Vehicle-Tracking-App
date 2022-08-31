@@ -111,7 +111,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: AppFillButton(
                   onTap: () {
-                    Get.to(() => const SlotDetailsScreen());
+                    Get.to(() => const SlotDetailsScreen(
+                          isSubscribed: true,
+                        ));
                   },
                   title: "Log In",
                 ),

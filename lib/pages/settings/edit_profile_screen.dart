@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vehicletracking/pages/not_subscribed/subscription_screen.dart';
 import 'package:vehicletracking/utils/app_assets.dart';
 import 'package:vehicletracking/utils/app_colors.dart';
 import 'package:vehicletracking/utils/app_static_decoration.dart';
@@ -108,7 +109,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       customHeight(50),
                       AppFillButton(
                         title: "Save".toUpperCase(),
-                        onTap: () {},
+                        onTap: () {
+                          Get.to(() => SubScriptionScreen());
+                        },
                         radius: 10,
                       ),
                     ],

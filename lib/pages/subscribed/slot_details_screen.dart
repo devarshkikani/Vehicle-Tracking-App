@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vehicletracking/pages/not_subscribed/subscription_screen.dart';
 import 'package:vehicletracking/pages/settings/setting_screen.dart';
 import 'package:vehicletracking/pages/subscribed/go_to_your_subcription_screen.dart';
 import 'package:vehicletracking/utils/app_assets.dart';
@@ -9,7 +10,9 @@ import 'package:vehicletracking/utils/app_text_style.dart';
 import 'package:vehicletracking/widgets/app_button.dart';
 
 class SlotDetailsScreen extends StatefulWidget {
-  const SlotDetailsScreen({Key? key}) : super(key: key);
+  final bool isSubscribed;
+  const SlotDetailsScreen({Key? key, required this.isSubscribed})
+      : super(key: key);
 
   @override
   State<SlotDetailsScreen> createState() => _SlotDetailsScreenState();
@@ -208,8 +211,8 @@ class _SlotDetailsScreenState extends State<SlotDetailsScreen> {
           const SizedBox(
             height: 10,
           ),
-          const Text(
-            '1',
+          Text(
+            widget.isSubscribed == true ? '1' : 'Not Subscribed yet',
             style: AppTextStyle.normalRegular16,
           ),
         ],
@@ -255,23 +258,28 @@ class _SlotDetailsScreenState extends State<SlotDetailsScreen> {
       children: [
         AppFillButton(
           onTap: () {
-            Get.to(() => const GotoYourSubscriptionScreen());
+            Get.to(() => widget.isSubscribed == true
+                ? GotoYourSubscriptionScreen()
+                : SubScriptionScreen());
           },
-          title: 'Go to Your Subscription',
+          title: widget.isSubscribed == true
+              ? 'Go to Your Subscription'
+              : 'Subscribe Now',
           width: Get.width,
           height: 50,
           radius: 10,
         ),
-        height15,
-        AppBorderButton(
-          onTap: () {
-            Get.to(() => const SettingScreen());
-          },
-          title: 'Add Another Subscription ',
-          width: Get.width,
-          height: 50,
-          radius: 10,
-        ),
+        if (widget.isSubscribed == true) height15,
+        if (widget.isSubscribed == true)
+          AppBorderButton(
+            onTap: () {
+              Get.to(() => const SettingScreen());
+            },
+            title: 'Add Another Subscription ',
+            width: Get.width,
+            height: 50,
+            radius: 10,
+          ),
       ],
     );
   }
