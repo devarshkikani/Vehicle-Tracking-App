@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:vehicletracking/utils/app_assets.dart';
 import 'package:vehicletracking/utils/app_colors.dart';
@@ -15,7 +16,10 @@ class PaymentScreen extends StatefulWidget {
 }
 
 class _PaymentScreenState extends State<PaymentScreen> {
-  TextEditingController controller = TextEditingController();
+  TextEditingController cardNumberController = TextEditingController();
+  TextEditingController expiryController = TextEditingController();
+  TextEditingController cvvController = TextEditingController();
+  TextEditingController nameOnCardController = TextEditingController();
   bool isCardSave = false;
   @override
   Widget build(BuildContext context) {
@@ -127,11 +131,18 @@ class _PaymentScreenState extends State<PaymentScreen> {
                               .copyWith(fontSize: 16)),
                       height10,
                       newTextFormFiled(
+                          inputFormatter: [
+                            FilteringTextInputFormatter.digitsOnly,
+                            CardNumberFormatter(),
+                          ],
+                          maxLength: 19,
                           labelText: '',
-                          controller: controller,
+                          controller: cardNumberController,
                           borderColor: containerGrey),
                       height15,
                       Row(
+
+                        
                         children: [
                           Expanded(
                             child: Column(
@@ -143,7 +154,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                 height10,
                                 newTextFormFiled(
                                     labelText: '',
-                                    controller: controller,
+                                    controller: expiryController,
                                     borderColor: containerGrey),
                               ],
                             ),
@@ -159,7 +170,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                                 height10,
                                 newTextFormFiled(
                                     labelText: '',
-                                    controller: controller,
+                                    controller: cvvController,
                                     borderColor: containerGrey),
                               ],
                             ),
@@ -173,7 +184,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       height10,
                       newTextFormFiled(
                           labelText: '',
-                          controller: controller,
+                          controller: nameOnCardController,
                           borderColor: containerGrey),
                       height20,
                       Row(
@@ -299,6 +310,37 @@ class _PaymentScreenState extends State<PaymentScreen> {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class CardNumberFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(
+    TextEditingValue previousValue,
+    TextEditingValue nextValue,
+  ) {
+    var inputText = nextValue.text;
+
+    if (nextValue.selection.baseOffset == 0) {
+      return nextValue;
+    }
+
+    var bufferString = new StringBuffer();
+    for (int i = 0; i < inputText.length; i++) {
+      bufferString.write(inputText[i]);
+      var nonZeroIndexValue = i + 1;
+      if (nonZeroIndexValue % 4 == 0 && nonZeroIndexValue != inputText.length) {
+        bufferString.write(' ');
+      }
+    }
+
+    var string = bufferString.toString();
+    return nextValue.copyWith(
+      text: string,
+      selection: new TextSelection.collapsed(
+        offset: string.length,
       ),
     );
   }

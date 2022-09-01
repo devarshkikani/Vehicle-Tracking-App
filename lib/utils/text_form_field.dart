@@ -6,9 +6,13 @@ import 'package:vehicletracking/utils/validators.dart';
 Widget newTextFormFiled(
     {required final String labelText,
     required final TextEditingController controller,
+    List<TextInputFormatter>? inputFormatter,
+    int? maxLength,
     borderColor}) {
   return TextFormField(
     controller: controller,
+    inputFormatters: inputFormatter,
+    maxLength: maxLength,
     decoration: InputDecoration(
       labelText: labelText,
       enabledBorder: OutlineInputBorder(
