@@ -259,8 +259,8 @@ class _SlotDetailsScreenState extends State<SlotDetailsScreen> {
         AppFillButton(
           onTap: () {
             Get.to(() => widget.isSubscribed == true
-                ? GotoYourSubscriptionScreen()
-                : SubScriptionScreen());
+                ? const GotoYourSubscriptionScreen()
+                : const SubScriptionScreen());
           },
           title: widget.isSubscribed == true
               ? 'Go to Your Subscription'

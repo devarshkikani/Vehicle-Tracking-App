@@ -39,6 +39,7 @@ class AppAsset {
   static const logout = 'assets/image/png/logout.png';
   static const editProfile = 'assets/image/png/edit_profile.png';
   static const setPassword = 'assets/image/png/set_password.png';
+  static const choosePlan = 'assets/image/png/choose_plan.png';
 
   /// Images
 

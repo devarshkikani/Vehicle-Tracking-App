@@ -1,14 +1,12 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:vehicletracking/pages/not_subscribed/parking_slot_screen.dart';
 import 'package:vehicletracking/pages/subscribed/slot_details_screen.dart';
 import 'package:vehicletracking/utils/app_assets.dart';
 import 'package:vehicletracking/utils/app_colors.dart';
 import 'package:vehicletracking/utils/app_static_decoration.dart';
 import 'package:vehicletracking/utils/app_text_style.dart';
 import 'package:vehicletracking/widgets/app_button.dart';
-import 'package:vehicletracking/widgets/app_comman_widget.dart';
 
 class SubScriptionScreen extends StatefulWidget {
   const SubScriptionScreen({Key? key}) : super(key: key);
@@ -98,7 +96,7 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                                         .copyWith(color: greyColor))
                                 : Text(
                                     duration.toString(),
-                                    style: TextStyle(color: blackColor),
+                                    style: const TextStyle(color: blackColor),
                                   ),
                             isExpanded: true,
                             borderRadius: BorderRadius.circular(30),
@@ -166,7 +164,7 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                                         .copyWith(color: greyColor))
                                 : Text(
                                     location.toString(),
-                                    style: TextStyle(color: blackColor),
+                                    style: const TextStyle(color: blackColor),
                                   ),
                             isExpanded: true,
                             borderRadius: BorderRadius.circular(30),
@@ -233,7 +231,7 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                                         .copyWith(color: greyColor))
                                 : Text(
                                     vehicleType.toString(),
-                                    style: TextStyle(color: blackColor),
+                                    style: const TextStyle(color: blackColor),
                                   ),
                             isExpanded: true,
                             borderRadius: BorderRadius.circular(30),
@@ -295,7 +293,7 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                                         .copyWith(color: greyColor))
                                 : Text(
                                     typeOfSlot.toString(),
-                                    style: TextStyle(color: blackColor),
+                                    style: const TextStyle(color: blackColor),
                                   ),
                             isExpanded: true,
                             borderRadius: BorderRadius.circular(30),
@@ -358,7 +356,7 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                                         .copyWith(color: greyColor))
                                 : Text(
                                     qty.toString(),
-                                    style: TextStyle(color: blackColor),
+                                    style: const TextStyle(color: blackColor),
                                   ),
                             isExpanded: true,
                             borderRadius: BorderRadius.circular(30),
@@ -398,9 +396,9 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                             title: "Next",
                             radius: 10,
                             onTap: () {
-                              Get.to(() => SlotDetailsScreen(
-                                    isSubscribed: false,
-                                  ));
+                              Get.to(
+                                () => const ParkingSlotScreen(),
+                              );
                             }),
                       ),
                     ],
