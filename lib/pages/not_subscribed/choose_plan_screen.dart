@@ -19,18 +19,6 @@ class _ChoosePlanScreenState extends State<ChoosePlanScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            height: Get.height,
-            width: Get.width,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(
-                  AppAsset.bgGroundTop,
-                ),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
           SingleChildScrollView(
             child: Column(
               children: [
