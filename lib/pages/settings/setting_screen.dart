@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vehicletracking/pages/not_subscribed/parking_slot_screen.dart';
-import 'package:vehicletracking/pages/not_subscribed/subscription_screen.dart';
+import 'package:vehicletracking/pages/auth/login.dart';
 import 'package:vehicletracking/pages/settings/change_password_screen.dart';
 import 'package:vehicletracking/pages/settings/edit_profile_screen.dart';
 import 'package:vehicletracking/pages/settings/history_screen.dart';
-import 'package:vehicletracking/pages/subscribed/slot_details_screen.dart';
 import 'package:vehicletracking/utils/app_assets.dart';
 import 'package:vehicletracking/utils/app_colors.dart';
 import 'package:vehicletracking/utils/app_static_decoration.dart';
@@ -22,6 +20,19 @@ class _SettingScreenState extends State<SettingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: const Icon(
+            Icons.arrow_back_rounded,
+          ),
+        ),
+      ),
       body: Stack(
         children: [
           Container(
@@ -29,16 +40,21 @@ class _SettingScreenState extends State<SettingScreen> {
               width: Get.width,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage(AppAsset.seetingBackground),
-                    fit: BoxFit.fill),
+                  image: AssetImage(AppAsset.seetingBackground),
+                  fit: BoxFit.fill,
+                ),
               ),
               child: Column(
                 children: [
                   Container(
                     margin: const EdgeInsets.only(top: 60),
                     decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(color: whiteColor, width: 5)),
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: whiteColor,
+                        width: 5,
+                      ),
+                    ),
                     child: Stack(
                       clipBehavior: Clip.none,
                       children: [
@@ -46,11 +62,12 @@ class _SettingScreenState extends State<SettingScreen> {
                           height: 90,
                           width: 90,
                           decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(color: Colors.red, width: 4),
-                              image: const DecorationImage(
-                                  image: AssetImage(AppAsset.maskgroup),
-                                  fit: BoxFit.cover)),
+                            shape: BoxShape.circle,
+                            border: Border.all(color: Colors.red, width: 4),
+                            image: const DecorationImage(
+                                image: AssetImage(AppAsset.maskgroup),
+                                fit: BoxFit.cover),
+                          ),
                         ),
                         Positioned(
                           bottom: 0,
@@ -120,7 +137,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   height10,
                   commonRow(
                     ontap: () {
-                      // Get.to(() => const EditProfileScreen());
+                      Get.to(() => const LoginScreen());
                     },
                     icon: AppAsset.logout,
                     text: 'Log Out',

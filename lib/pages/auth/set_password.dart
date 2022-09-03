@@ -26,11 +26,28 @@ class _SetPasswordState extends State<SetPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: const Icon(
+            Icons.arrow_back_rounded,
+            color: blackColor,
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Stack(
           children: [
             Image.asset(
               AppAsset.setPassword,
+              height: Get.height,
+              width: Get.width,
+              fit: BoxFit.cover,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 30.0),
@@ -155,8 +172,11 @@ class _SetPasswordState extends State<SetPassword> {
                           child: appRichText(
                             "Already have an account?  ",
                             "LogIn",
+                            decoration: TextDecoration.underline,
                             onTap: () {
-                              Get.offAll(() => const LoginScreen());
+                              Get.offAll(
+                                () => const LoginScreen(),
+                              );
                             },
                           ),
                         ),
@@ -164,23 +184,6 @@ class _SetPasswordState extends State<SetPassword> {
                     ),
                   ),
                 ],
-              ),
-            ),
-            SafeArea(
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: GestureDetector(
-                    onTap: () {
-                      Get.back();
-                    },
-                    child: const Icon(
-                      Icons.arrow_back_rounded,
-                      color: blackColor,
-                    ),
-                  ),
-                ),
               ),
             ),
           ],

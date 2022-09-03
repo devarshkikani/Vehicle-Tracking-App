@@ -49,7 +49,7 @@ class _ChoosePlanScreenState extends State<ChoosePlanScreen> {
                         children: [
                           Container(
                             margin: const EdgeInsets.only(top: 150),
-                            width: 350,
+                            width: 340,
                             height: 450,
                             decoration: BoxDecoration(
                               image: const DecorationImage(
@@ -72,7 +72,7 @@ class _ChoosePlanScreenState extends State<ChoosePlanScreen> {
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    height10,
+                                    height20,
                                     Container(
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 20, vertical: 5),
@@ -86,12 +86,12 @@ class _ChoosePlanScreenState extends State<ChoosePlanScreen> {
                                             .copyWith(color: greyColor),
                                       ),
                                     ),
-                                    height10,
+                                    height20,
                                     Text(
                                       '600/-',
                                       style: AppTextStyle.normalSemiBold20
                                           .copyWith(
-                                              fontSize: 30, color: appColor),
+                                              fontSize: 35, color: appColor),
                                     ),
                                     height10,
                                     Text(
@@ -199,7 +199,7 @@ class _ChoosePlanScreenState extends State<ChoosePlanScreen> {
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    height10,
+                                    height20,
                                     Container(
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 20, vertical: 5),
@@ -213,16 +213,16 @@ class _ChoosePlanScreenState extends State<ChoosePlanScreen> {
                                             .copyWith(color: greyColor),
                                       ),
                                     ),
-                                    height10,
+                                    height20,
                                     Text(
                                       '4000/-',
                                       style: AppTextStyle.normalSemiBold20
                                           .copyWith(
-                                              fontSize: 30, color: appColor),
+                                              fontSize: 35, color: appColor),
                                     ),
                                     height10,
                                     Text(
-                                      'Monthly',
+                                      'Yearly',
                                       style: AppTextStyle.normalRegular14
                                           .copyWith(color: greyColor),
                                     ),
@@ -327,18 +327,18 @@ class _ChoosePlanScreenState extends State<ChoosePlanScreen> {
                           ),
                           if (selectedIndex.value > 0)
                             Positioned(
-                              bottom: 250,
+                              bottom: 230,
                               left: -20,
                               child: InkWell(
                                 onTap: previousPage,
                                 child: Container(
-                                  height: 50,
-                                  width: 50,
+                                  height: 40,
+                                  width: 40,
                                   decoration: const BoxDecoration(
                                       shape: BoxShape.circle, color: appColor),
                                   child: const Center(
                                     child: Icon(
-                                      Icons.arrow_back_ios_new,
+                                      Icons.arrow_back_ios_rounded,
                                       color: whiteColor,
                                     ),
                                   ),
@@ -347,18 +347,18 @@ class _ChoosePlanScreenState extends State<ChoosePlanScreen> {
                             ),
                           if (selectedIndex.value <= 0)
                             Positioned(
-                              bottom: 250,
+                              bottom: 230,
                               right: -20,
                               child: InkWell(
                                 onTap: nextPage,
                                 child: Container(
-                                  height: 50,
-                                  width: 50,
+                                  height: 40,
+                                  width: 40,
                                   decoration: const BoxDecoration(
                                       shape: BoxShape.circle, color: appColor),
                                   child: const Center(
                                     child: Icon(
-                                      Icons.arrow_forward_ios,
+                                      Icons.arrow_forward_ios_rounded,
                                       color: whiteColor,
                                     ),
                                   ),

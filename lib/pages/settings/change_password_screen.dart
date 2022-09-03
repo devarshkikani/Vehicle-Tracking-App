@@ -21,30 +21,40 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: const Icon(
+            Icons.arrow_back_rounded,
+            color: blackColor,
+          ),
+        ),
+      ),
       body: Container(
         height: Get.height,
         width: Get.width,
         decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage(AppAsset.bgThemeTop), fit: BoxFit.cover),
+            image: AssetImage(
+              AppAsset.changePassword,
+            ),
+            fit: BoxFit.cover,
+          ),
         ),
         child: Stack(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 100),
+              padding: const EdgeInsets.only(top: 300),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Container(
-                      height: 250,
-                      width: Get.width,
-                      decoration: const BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage(AppAsset.changePassword))),
-                    ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Column(
                         children: [
                           Align(
@@ -88,15 +98,6 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                               ),
                             ),
                           ),
-                          height05,
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              'Must be atleast 6 Characters',
-                              style: AppTextStyle.normalRegular14
-                                  .copyWith(color: greyColor),
-                            ),
-                          ),
                           height25,
                           TextField(
                             controller: confirmPasswordController,
@@ -119,12 +120,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                               ),
                             ),
                           ),
-                          customHeight(50),
-                          AppFillButton(
-                            title: "Next".toUpperCase(),
-                            onTap: () {},
-                            radius: 10,
-                          ),
+                          height25,
                         ],
                       ),
                     ),
@@ -132,23 +128,20 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                 ),
               ),
             ),
-            SafeArea(
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: GestureDetector(
-                      onTap: () {
-                        Get.back();
-                      },
-                      child: const Icon(
-                        Icons.arrow_back_rounded,
-                        color: blackColor,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            AppFillButton(
+              title: 'Reset password',
+              onTap: () {
+                Get.back();
+              },
+              radius: 10,
             ),
           ],
         ),

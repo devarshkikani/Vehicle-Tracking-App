@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vehicletracking/pages/auth/login.dart';
 import 'package:vehicletracking/pages/auth/set_password.dart';
+import 'package:vehicletracking/utils/app_colors.dart';
 import 'package:vehicletracking/utils/app_static_decoration.dart';
 import 'package:vehicletracking/widgets/app_button.dart';
 import 'package:vehicletracking/widgets/app_comman_widget.dart';
@@ -22,6 +23,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
     var height = Get.height;
     var width = Get.width;
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        leading: InkWell(
+          onTap: () {
+            Get.back();
+          },
+          child: const Icon(
+            Icons.arrow_back,
+            color: blackColor,
+            size: 20.0,
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
+      ),
       body: Container(
         width: width,
         height: height,
@@ -38,19 +54,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Column(
               children: [
                 height15,
-                Row(
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Get.back();
-                      },
-                      child: const Icon(
-                        Icons.arrow_back,
-                        size: 20.0,
-                      ),
-                    ),
-                  ],
-                ),
                 const Text(
                   "Let’s Get Started",
                   textAlign: TextAlign.center,

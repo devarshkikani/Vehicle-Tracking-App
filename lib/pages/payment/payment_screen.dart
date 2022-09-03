@@ -243,86 +243,86 @@ class _PaymentScreenState extends State<PaymentScreen> {
 
   Widget cardContainer(
       {required String icon, required String text, void Function()? onTap}) {
-    return Container(
-      height: 84,
-      decoration: BoxDecoration(
-          color: containerGrey, borderRadius: BorderRadius.circular(10)),
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Row(
-        children: [
-          Container(
-            height: 41,
-            width: 41,
-            decoration: BoxDecoration(
-              color: whiteColor,
-              borderRadius: BorderRadius.circular(15),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 84,
+        decoration: BoxDecoration(
+            color: containerGrey, borderRadius: BorderRadius.circular(10)),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Row(
+          children: [
+            Container(
+              height: 41,
+              width: 41,
+              decoration: BoxDecoration(
+                color: whiteColor,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              padding: const EdgeInsets.all(10),
+              child: Image.asset(icon),
             ),
-            padding: const EdgeInsets.all(10),
-            child: Image.asset(icon),
-          ),
-          width15,
-          Text(
-            text,
-            style: AppTextStyle.normalRegular14.copyWith(color: whiteColor),
-          ),
-          const Spacer(),
-          InkWell(
-            onTap: onTap,
-            child: const Icon(
+            width15,
+            Text(
+              text,
+              style: AppTextStyle.normalRegular14.copyWith(color: whiteColor),
+            ),
+            const Spacer(),
+            const Icon(
               Icons.keyboard_arrow_down,
               color: whiteColor,
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
 
   Widget paymentContainer(
       {required String icon, required String text, void Function()? onTap}) {
-    return Container(
-      height: 84,
-      decoration: BoxDecoration(
-          color: containerGrey, borderRadius: BorderRadius.circular(10)),
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Row(
-        children: [
-          Image.asset(
-            icon,
-            height: 65,
-            width: 65,
-          ),
-          width15,
-          text == 'VisaCard'
-              ? Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      text,
-                      style: AppTextStyle.normalRegular14
-                          .copyWith(color: whiteColor),
-                    ),
-                    height05,
-                    Text('***********',
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 84,
+        decoration: BoxDecoration(
+            color: containerGrey, borderRadius: BorderRadius.circular(10)),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Row(
+          children: [
+            Image.asset(
+              icon,
+              height: 65,
+              width: 65,
+            ),
+            width15,
+            text == 'VisaCard'
+                ? Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        text,
                         style: AppTextStyle.normalRegular14
-                            .copyWith(color: greyColor))
-                  ],
-                )
-              : Text(
-                  text,
-                  style:
-                      AppTextStyle.normalRegular14.copyWith(color: whiteColor),
-                ),
-          const Spacer(),
-          InkWell(
-            onTap: onTap,
-            child: const Icon(
+                            .copyWith(color: whiteColor),
+                      ),
+                      height05,
+                      Text('***********',
+                          style: AppTextStyle.normalRegular14
+                              .copyWith(color: greyColor))
+                    ],
+                  )
+                : Text(
+                    text,
+                    style: AppTextStyle.normalRegular14
+                        .copyWith(color: whiteColor),
+                  ),
+            const Spacer(),
+            const Icon(
               Icons.more_vert,
               color: whiteColor,
             ),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }

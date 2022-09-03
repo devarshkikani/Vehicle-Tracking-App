@@ -30,7 +30,7 @@ class AppAsset {
   static const car = 'assets/image/png/car.png';
   static const settingsBg = 'assets/image/png/settingsBg.png';
   static const bgThemeTop = 'assets/image/png/bgThemeTop.png';
-  static const changePassword = 'assets/image/png/password_change.png';
+  static const changePassword = 'assets/image/png/change_password.png';
   static const seetingBackground = 'assets/image/png/setting.png';
   static const person = 'assets/image/png/person.png';
   static const maskgroup = 'assets/image/png/mask-group.png';

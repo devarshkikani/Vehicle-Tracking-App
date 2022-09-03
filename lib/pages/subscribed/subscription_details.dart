@@ -90,9 +90,6 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
                         itemBuilder: (BuildContext context, int index) =>
                             subscriptionDetailsWidget(),
                       ),
-                      // height15,
-                      // bottomButtons(),
-                      // height15,
                     ],
                   ),
                 ),
@@ -702,7 +699,9 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
               child: AppBorderButton(
                 title: 'No, Go Back',
                 radius: 10,
-                onTap: () {},
+                onTap: () {
+                  Get.back();
+                },
               ),
             ),
             width05,
@@ -721,7 +720,10 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
         AppBorderButton(
           title: 'Cancel this Parking',
           radius: 10,
-          onTap: () {},
+          height: 50,
+          onTap: () {
+            cancelPopup();
+          },
         ),
       ],
     );
@@ -758,7 +760,10 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
               AppFillButton(
                 title: 'Submit',
                 radius: 10,
-                onTap: () {},
+                height: 50,
+                onTap: () {
+                  Get.back();
+                },
               ),
               height10,
             ],
@@ -768,7 +773,7 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
     );
   }
 
-  void submitePopup() {
+  void cancelPopup() {
     showDialog(
       context: context,
       builder: (context) {
@@ -782,24 +787,69 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
             shrinkWrap: true,
             padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
             children: <Widget>[
-              AppTextField(
-                hintText: 'Subject',
-                hintStyle:
-                    AppTextStyle.normalRegular16.copyWith(color: greyColor),
+              const Text(
+                'Are you sure you want to Cancel your Current Subscription?',
+                textAlign: TextAlign.center,
+                style: AppTextStyle.normalSemiBold16,
               ),
               height20,
-              AppTextField(
-                hintText: 'Write your meesage here....',
-                hintStyle:
-                    AppTextStyle.normalRegular16.copyWith(color: greyColor),
-                maxLines: 5,
-                textAlign: TextAlign.start,
+              Row(
+                children: [
+                  Obx(
+                    () => Checkbox(
+                      value: isTermAgree.value,
+                      fillColor: MaterialStateProperty.all(appColor),
+                      activeColor: appColor,
+                      onChanged: (bool? value) {
+                        isTermAgree.value = value ?? false;
+                      },
+                    ),
+                  ),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: 'I Agree to the ',
+                          style: AppTextStyle.normalRegular16.copyWith(
+                            color: greyColor,
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'Terms & Conditions',
+                          style: AppTextStyle.normalRegular16.copyWith(
+                            color: appColor,
+                            decoration: TextDecoration.underline,
+                          ),
+                          recognizer: TapGestureRecognizer()..onTap = () {},
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
               ),
               height20,
-              AppFillButton(
-                title: 'Submit',
-                radius: 10,
-                onTap: () {},
+              Row(
+                children: [
+                  Expanded(
+                    child: AppBorderButton(
+                      title: 'No, Go Back',
+                      radius: 10,
+                      onTap: () {
+                        Get.back();
+                      },
+                    ),
+                  ),
+                  width05,
+                  Expanded(
+                    child: AppFillButton(
+                      title: 'Yes, I’m Sure',
+                      radius: 10,
+                      onTap: () {
+                        Get.back();
+                      },
+                    ),
+                  ),
+                ],
               ),
               height10,
             ],

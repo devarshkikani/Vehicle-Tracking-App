@@ -27,13 +27,10 @@ class _SlotDetailsScreenState extends State<SlotDetailsScreen> {
           SingleChildScrollView(
             child: Stack(
               children: [
-                Column(
+                Stack(
                   children: [
-                    Image.asset(
-                      AppAsset.logInImage3,
-                    ),
                     Container(
-                      height: Get.height - 30,
+                      height: Get.height,
                       width: Get.width,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
@@ -43,6 +40,10 @@ class _SlotDetailsScreenState extends State<SlotDetailsScreen> {
                           fit: BoxFit.cover,
                         ),
                       ),
+                    ),
+                    Image.asset(
+                      AppAsset.logInImage3,
+                      width: Get.width,
                     ),
                   ],
                 ),
@@ -58,9 +59,6 @@ class _SlotDetailsScreenState extends State<SlotDetailsScreen> {
                       montlySubscriptionWidget(),
                       height15,
                       descriptionWidget(),
-                      height20,
-                      button(),
-                      height15,
                     ],
                   ),
                 ),
@@ -73,7 +71,9 @@ class _SlotDetailsScreenState extends State<SlotDetailsScreen> {
               child: Padding(
                 padding: const EdgeInsets.all(15),
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Get.back();
+                  },
                   child: const Icon(
                     Icons.arrow_back_rounded,
                   ),
@@ -83,6 +83,7 @@ class _SlotDetailsScreenState extends State<SlotDetailsScreen> {
           ),
         ],
       ),
+      bottomNavigationBar: button(),
     );
   }
 
@@ -254,33 +255,38 @@ class _SlotDetailsScreenState extends State<SlotDetailsScreen> {
   }
 
   Widget button() {
-    return Column(
-      children: [
-        AppFillButton(
-          onTap: () {
-            Get.to(() => widget.isSubscribed == true
-                ? const GotoYourSubscriptionScreen()
-                : const SubScriptionScreen());
-          },
-          title: widget.isSubscribed == true
-              ? 'Go to Your Subscription'
-              : 'Subscribe Now',
-          width: Get.width,
-          height: 50,
-          radius: 10,
-        ),
-        if (widget.isSubscribed == true) height15,
-        if (widget.isSubscribed == true)
-          AppBorderButton(
+    return Padding(
+      padding: const EdgeInsets.all(15.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          AppFillButton(
             onTap: () {
-              Get.to(() => const SettingScreen());
+              Get.to(() => widget.isSubscribed == true
+                  ? const GotoYourSubscriptionScreen()
+                  : const SubScriptionScreen());
             },
-            title: 'Add Another Subscription ',
+            title: widget.isSubscribed == true
+                ? 'Go to Your Subscription'
+                : 'Subscribe Now',
             width: Get.width,
             height: 50,
             radius: 10,
           ),
-      ],
+          if (widget.isSubscribed == true) height15,
+          if (widget.isSubscribed == true)
+            AppBorderButton(
+              onTap: () {
+                Get.to(() => const SettingScreen());
+              },
+              title: 'Add Another Subscription ',
+              width: Get.width,
+              height: 50,
+              radius: 10,
+            ),
+        ],
+      ),
     );
   }
 }

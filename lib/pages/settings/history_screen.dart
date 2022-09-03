@@ -140,16 +140,38 @@ class _HistoryScreenState extends State<HistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        height: Get.height,
-        width: Get.width,
-        decoration: const BoxDecoration(
-            image: DecorationImage(image: AssetImage(AppAsset.bgThemeTop))),
-        child: Stack(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(
-                  left: 20, right: 20, top: 70, bottom: 20),
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        centerTitle: true,
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: const Icon(
+            Icons.arrow_back_rounded,
+            color: blackColor,
+          ),
+        ),
+        title: Text(
+          'History',
+          style: AppTextStyle.normalSemiBold8.copyWith(fontSize: 20),
+        ),
+      ),
+      body: Stack(
+        children: [
+          SizedBox(
+            height: Get.height,
+            width: Get.width,
+            child: Image.asset(
+              AppAsset.bgThemeTop,
+              fit: BoxFit.cover,
+            ),
+          ),
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
               child: ListView.builder(
                   itemCount: historyTransction.length,
                   itemBuilder: (context, index) {
@@ -195,34 +217,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
                     );
                   }),
             ),
-            SafeArea(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    child: GestureDetector(
-                      onTap: () {
-                        Get.back();
-                      },
-                      child: const Icon(
-                        Icons.arrow_back_rounded,
-                        color: blackColor,
-                      ),
-                    ),
-                  ),
-                  Text(
-                    'History',
-                    style: AppTextStyle.normalSemiBold8.copyWith(fontSize: 20),
-                  ),
-                  const SizedBox(
-                    width: 35,
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

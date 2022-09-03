@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:vehicletracking/pages/auth/forgot_password_screen.dart';
 import 'package:vehicletracking/pages/auth/sign_up.dart';
 import 'package:vehicletracking/pages/subscribed/slot_details_screen.dart';
+import 'package:vehicletracking/utils/app_colors.dart';
 import 'package:vehicletracking/utils/app_static_decoration.dart';
 import 'package:vehicletracking/widgets/app_button.dart';
 import 'package:vehicletracking/widgets/app_comman_widget.dart';
@@ -60,13 +61,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   decoration: InputDecoration(
                       labelText: 'Account Number*',
                       enabledBorder: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(width: 3, color: Colors.grey),
+                        borderSide: const BorderSide(color: borderGreyColor),
                         borderRadius: BorderRadius.circular(30),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(width: 3, color: Colors.red),
+                        borderSide: const BorderSide(color: appColor),
                         borderRadius: BorderRadius.circular(30),
                       )),
                 ),
@@ -82,13 +81,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: Colors.grey,
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(width: 3, color: Colors.grey),
+                        borderSide: const BorderSide(color: borderGreyColor),
                         borderRadius: BorderRadius.circular(30),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            const BorderSide(width: 3, color: Colors.red),
+                        borderSide: const BorderSide(color: appColor),
                         borderRadius: BorderRadius.circular(30),
                       )),
                 ),
@@ -119,50 +116,18 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               height20,
-              appRichText("Don’t have an account?  ", "SignUp",
-                  onTap: () async {
-                Get.to(() => const SignUpScreen());
-              })
+              appRichText(
+                "Don’t have an account?  ",
+                "SignUp",
+                onTap: () async {
+                  Get.to(() => const SignUpScreen());
+                },
+              ),
+              height20,
             ],
           ),
         ),
       ),
-      // Container(
-      //   width: width,
-      //   height: height,
-      //   decoration: const BoxDecoration(
-      //     image: DecorationImage(
-      //         image: AssetImage(
-      //           AppAsset.bgGroundTop,
-      //         ),
-      //         fit: BoxFit.fill),
-      //   ),
-      //   child: Padding(
-      //     padding: const EdgeInsets.symmetric(horizontal: 30.0),
-      //     child: Column(
-      //       mainAxisAlignment: MainAxisAlignment.end,
-      //       children: [
-      //         const AppTextField(
-      //           labelText: "Name",
-      //           hintText: "xuzabd",
-      //         ),
-      //         height25,
-      //         AppFillButton(
-      //           onTap: () {
-      //             print("object");
-      //           },
-      //           title: "Log In",
-      //         ),
-      //         height20,
-      //         appRichText("Don’t have an account?  ", "SignUp",
-      //             onTap: () async {
-      //           print("object --> Sign Up");
-      //           Get.to(() => const SignUpScreen());
-      //         })
-      //       ],
-      //     ),
-      //   ),
-      // ),
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

@@ -379,6 +379,7 @@ class _GotoYourSubscriptionScreenState
           child: AppFillButton(
             title: 'Renew',
             radius: 15,
+            height: 50,
             onTap: () {
               renewalPopup();
             },
@@ -388,6 +389,7 @@ class _GotoYourSubscriptionScreenState
         Expanded(
           child: AppBorderButton(
             title: 'Cancel',
+            height: 50,
             radius: 15,
             onTap: () {
               cancelPopup();
