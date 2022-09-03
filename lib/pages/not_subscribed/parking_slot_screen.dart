@@ -234,7 +234,7 @@ class _ParkingSlotScreenState extends State<ParkingSlotScreen> {
                       child: AppFillButton(
                         title: 'Next',
                         onTap: () {
-                          Get.to(const ChoosePlanScreen());
+                          Get.to(() => const ChoosePlanScreen());
                         },
                         radius: 10,
                       ),
@@ -299,7 +299,7 @@ class _ParkingSlotScreenState extends State<ParkingSlotScreen> {
                   Expanded(
                     child: AppFillButton(
                       onTap: () {
-                        Get.to(const ChoosePlanScreen());
+                        Get.to(() => const ChoosePlanScreen());
                       },
                       title: 'Next',
                       radius: 10,

@@ -48,6 +48,8 @@ class AppAsset {
   //Svg Images
   static const editIcon = 'assets/image/svg/edit_icon.svg';
   static const emailIcon = 'assets/image/svg/email_icon.svg';
+  static const cameraIcon = 'assets/image/svg/camera_icon.svg';
+  static const addIcon = 'assets/image/svg/add_icon.svg';
 
   //Png Icons
 }

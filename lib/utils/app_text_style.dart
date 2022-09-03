@@ -10,6 +10,16 @@ class AppTextStyle {
     color: blackColor,
   );
 
+  static const normalSemiBold12 = TextStyle(
+    fontSize: 14.0,
+    fontWeight: FontWeight.w600,
+    color: blackColor,
+  );
+  static const normalSemiBold14 = TextStyle(
+    fontSize: 14.0,
+    fontWeight: FontWeight.w600,
+    color: blackColor,
+  );
   static const normalSemiBold16 = TextStyle(
     fontSize: 16.0,
     fontWeight: FontWeight.w600,
