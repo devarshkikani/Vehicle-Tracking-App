@@ -35,101 +35,96 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
           ),
         ),
       ),
-      body: Container(
-        height: Get.height,
-        width: Get.width,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
+      body: Stack(
+        children: [
+          Positioned(
+            top: 0,
+            child: Image.asset(
               AppAsset.changePassword,
+              fit: BoxFit.cover,
             ),
-            fit: BoxFit.cover,
           ),
-        ),
-        child: Stack(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 300),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
-                      child: Column(
-                        children: [
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: InkWell(
-                              onTap: () {
-                                Get.to(() => const EditProfileScreen());
-                              },
-                              child: Text(
-                                'Change Password',
-                                style: AppTextStyle.normalSemiBold8
-                                    .copyWith(fontSize: 20),
+          Padding(
+            padding: const EdgeInsets.only(top: 340),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: InkWell(
+                            onTap: () {
+                              Get.to(() => const EditProfileScreen());
+                            },
+                            child: Text(
+                              'Change Password',
+                              style: AppTextStyle.normalSemiBold8
+                                  .copyWith(fontSize: 20),
+                            ),
+                          ),
+                        ),
+                        height10,
+                        Text(
+                          'Your new password must be different from previously used passwords.',
+                          style: AppTextStyle.normalRegular14
+                              .copyWith(color: greyColor),
+                        ),
+                        height25,
+                        TextField(
+                          controller: newPasswordController,
+                          decoration: InputDecoration(
+                            labelText: 'Create New Password',
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(color: greyColor),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(color: appColor),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            suffixIcon: const Padding(
+                              padding: EdgeInsets.all(10.0),
+                              child: Icon(
+                                Icons.visibility_off,
+                                color: blackColor,
                               ),
                             ),
                           ),
-                          height10,
-                          Text(
-                            'Your new password must be different from previously used passwords.',
-                            style: AppTextStyle.normalRegular14
-                                .copyWith(color: greyColor),
-                          ),
-                          height25,
-                          TextField(
-                            controller: newPasswordController,
-                            decoration: InputDecoration(
-                              labelText: 'Create New Password',
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(color: greyColor),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(color: appColor),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              suffixIcon: const Padding(
-                                padding: EdgeInsets.all(10.0),
-                                child: Icon(
-                                  Icons.visibility_off,
-                                  color: blackColor,
-                                ),
+                        ),
+                        height25,
+                        TextField(
+                          controller: confirmPasswordController,
+                          decoration: InputDecoration(
+                            labelText: 'Confirm New Password',
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(color: greyColor),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(color: appColor),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            suffixIcon: const Padding(
+                              padding: EdgeInsets.all(10.0),
+                              child: Icon(
+                                Icons.visibility_outlined,
+                                color: greyColor,
                               ),
                             ),
                           ),
-                          height25,
-                          TextField(
-                            controller: confirmPasswordController,
-                            decoration: InputDecoration(
-                              labelText: 'Confirm New Password',
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(color: greyColor),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: const BorderSide(color: appColor),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              suffixIcon: const Padding(
-                                padding: EdgeInsets.all(10.0),
-                                child: Icon(
-                                  Icons.visibility_outlined,
-                                  color: greyColor,
-                                ),
-                              ),
-                            ),
-                          ),
-                          height25,
-                        ],
-                      ),
+                        ),
+                        height25,
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(15.0),

@@ -27,30 +27,19 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        leading: GestureDetector(
-          onTap: () {
-            Get.back();
-          },
-          child: const Icon(
-            Icons.arrow_back_rounded,
-            color: blackColor,
-          ),
-        ),
-      ),
       body: Stack(
         children: [
-          Image.asset(
-            AppAsset.editProfile,
-            width: Get.width,
-            height: Get.height,
-            fit: BoxFit.cover,
+          Positioned(
+            top: 0,
+            child: Image.asset(
+              AppAsset.editProfile,
+              width: Get.width,
+              height: Get.height,
+              fit: BoxFit.cover,
+            ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 280.0),
+            padding: const EdgeInsets.only(top: 290.0),
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -109,7 +98,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         ),
                         customHeight(50),
                         AppFillButton(
-                          title: "Save".toUpperCase(),
+                          title: "Save",
                           onTap: () {
                             Get.back();
                           },
@@ -120,6 +109,22 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     ),
                   ),
                 ],
+              ),
+            ),
+          ),
+          SafeArea(
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: const EdgeInsets.all(15),
+                child: GestureDetector(
+                  onTap: () {
+                    Get.back();
+                  },
+                  child: const Icon(
+                    Icons.arrow_back_rounded,
+                  ),
+                ),
               ),
             ),
           ),
