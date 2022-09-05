@@ -35,12 +35,14 @@ class AppTextField extends StatelessWidget {
   final FormFieldValidator<String?>? validator;
   final ValueChanged<String?>? onChanged;
   final ValueChanged<String?>? onFieldSubmitted;
+  final BorderRadius? borderRadius;
   const AppTextField(
       {Key? key,
       this.fieldKey,
       this.hintText,
       this.labelText,
       this.helperText,
+      this.borderRadius,
       this.initialValue,
       this.errorMaxLines,
       this.maxLines,
@@ -109,8 +111,16 @@ class AppTextField extends StatelessWidget {
             color: borderColor ?? appColor,
           ),
         ),
-        focusedBorder: textFieldBorderDecoration,
-        enabledBorder: textFieldBorderDecoration,
+        focusedBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: appColor),
+          borderRadius:
+              borderRadius ?? const BorderRadius.all(Radius.circular(4.0)),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(color: borderGreyColor),
+          borderRadius:
+              borderRadius ?? const BorderRadius.all(Radius.circular(4.0)),
+        ),
         border: textFieldBorderDecoration,
         // errorMaxLines: 5,
         fillColor: filledColor ?? whiteColor.withOpacity(0.7),

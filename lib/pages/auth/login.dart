@@ -20,13 +20,9 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    // var height = Get.height;
-    // var width = Get.width;
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          // width: width,
-          // height: height,
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
@@ -59,15 +55,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: TextField(
                   decoration: InputDecoration(
-                      labelText: 'Account Number*',
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: borderGreyColor),
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(color: appColor),
-                        borderRadius: BorderRadius.circular(30),
-                      )),
+                    labelText: 'Account Number*',
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: borderGreyColor),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: appColor),
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
                 ),
               ),
               customHeight(20),
