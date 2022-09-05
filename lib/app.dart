@@ -15,9 +15,12 @@ class _VehicleTrackAppState extends State<VehicleTrackApp> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        theme: ThemeData(
-            primarySwatch: appMaterialColor, fontFamily: AppAsset.fontFamily),
-        debugShowCheckedModeBanner: false,
-        home: const SplashScreen());
+      theme: ThemeData(
+        primarySwatch: appMaterialColor,
+        fontFamily: AppAsset.fontFamily,
+      ),
+      debugShowCheckedModeBanner: false,
+      home: const SplashScreen(),
+    );
   }
 }
