@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vehicletracking/utils/app_assets.dart';
-import 'package:vehicletracking/utils/app_colors.dart';
 import 'package:vehicletracking/utils/app_static_decoration.dart';
 import 'package:vehicletracking/utils/app_text_style.dart';
 import 'package:vehicletracking/utils/text_form_field.dart';

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vehicletracking/pages/not_subscribed/parking_slot_screen.dart';
-import 'package:vehicletracking/pages/subscribed/slot_details_screen.dart';
 import 'package:vehicletracking/utils/app_assets.dart';
 import 'package:vehicletracking/utils/app_colors.dart';
 import 'package:vehicletracking/utils/app_static_decoration.dart';

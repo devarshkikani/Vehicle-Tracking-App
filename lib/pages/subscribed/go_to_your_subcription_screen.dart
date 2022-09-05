@@ -501,7 +501,7 @@ class _GotoYourSubscriptionScreenState
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Color(0xffFAFAFA),
+                    color: const Color(0xffFAFAFA),
                     border: Border.all(
                       color: greyColor,
                     )),
@@ -517,7 +517,7 @@ class _GotoYourSubscriptionScreenState
                           style: AppTextStyle.normalRegular16
                               .copyWith(color: borderGreyColor),
                         ),
-                  icon: Icon(Icons.keyboard_arrow_down),
+                  icon: const Icon(Icons.keyboard_arrow_down),
                   iconSize: 15,
                   underline: const SizedBox(),
                   items: slotList.map((String value) {

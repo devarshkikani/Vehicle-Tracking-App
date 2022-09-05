@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:vehicletracking/utils/app_colors.dart';
@@ -29,7 +31,8 @@ Widget newTextFormFiled(
 
 class EmailWidget extends StatelessWidget {
   const EmailWidget(
-      {this.fieldKey,
+      {Key? key,
+      this.fieldKey,
       this.hintText,
       this.style,
       this.controller,
@@ -37,7 +40,8 @@ class EmailWidget extends StatelessWidget {
       this.keyboardType,
       this.enabled,
       this.focusNode,
-      this.borderSide});
+      this.borderSide})
+      : super(key: key);
   final Key? fieldKey;
   final String? hintText;
   final TextStyle? style;
@@ -53,8 +57,8 @@ class EmailWidget extends StatelessWidget {
     return textFormField(
       fieldKey: fieldKey,
       hintText: hintText,
-      hintStyle: TextStyle(color: whiteColor),
-      style: TextStyle(color: whiteColor),
+      hintStyle: const TextStyle(color: whiteColor),
+      style: const TextStyle(color: whiteColor),
       enabled: enabled,
       focusNode: focusNode,
       controller: controller,
@@ -73,6 +77,7 @@ class EmailWidget extends StatelessWidget {
 // ignore: must_be_immutable
 class PasswordWidget extends StatefulWidget {
   PasswordWidget({
+    Key? key,
     this.fieldKey,
     this.hintText,
     this.validator,
@@ -81,7 +86,7 @@ class PasswordWidget extends StatefulWidget {
     this.textInputAction,
     this.showsuffixIcon,
     this.borderSide,
-  });
+  }) : super(key: key);
 
   final Key? fieldKey;
   final String? hintText;
@@ -104,8 +109,8 @@ class _PasswordWidgetState extends State<PasswordWidget> {
     return textFormField(
       fieldKey: widget.fieldKey,
       hintText: widget.hintText,
-      hintStyle: TextStyle(color: whiteColor),
-      style: TextStyle(color: whiteColor),
+      hintStyle: const TextStyle(color: whiteColor),
+      style: const TextStyle(color: whiteColor),
       filledColor: blackColor,
       border: widget.borderSide,
       focusBorder: widget.borderSide,
@@ -129,7 +134,7 @@ class _PasswordWidgetState extends State<PasswordWidget> {
                 color: greyColor,
               ),
             )
-          : SizedBox(),
+          : const SizedBox(),
     );
   }
 }
@@ -322,13 +327,13 @@ class SearchBar extends StatelessWidget {
         focusBorder: BorderSide(color: greyColor.withOpacity(0.50)),
         enabledBorder: BorderSide(color: greyColor.withOpacity(0.50)),
         filledColor: whiteColor,
-        hintStyle: TextStyle(
+        hintStyle: const TextStyle(
           fontSize: 15,
           color: greyColor,
         ),
         controller: controller,
         onChanged: onChanged,
-        prefixIcon: Icon(
+        prefixIcon: const Icon(
           Icons.search_rounded,
           color: greyColor,
           size: 20,
@@ -398,7 +403,7 @@ TextFormField textFormField({
     style: style,
     decoration: InputDecoration(
       prefixIcon: prefixIcon,
-      contentPadding: EdgeInsets.fromLTRB(26, 16, 0, 16),
+      contentPadding: const EdgeInsets.fromLTRB(26, 16, 0, 16),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8.0),
         borderSide: border ?? BorderSide.none,
