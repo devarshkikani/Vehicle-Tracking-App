@@ -19,32 +19,11 @@ class GotoYourSubscriptionScreen extends StatefulWidget {
 
 class _GotoYourSubscriptionScreenState
     extends State<GotoYourSubscriptionScreen> {
-  TextEditingController contractDateController = TextEditingController();
-  TextEditingController amountController = TextEditingController();
-  TextEditingController parkingNumberController = TextEditingController();
-  TextEditingController slotQuantityController = TextEditingController();
-  TextEditingController locationController = TextEditingController();
-  DateTime selectedDate = DateTime.now();
   RxBool isTermAgree = false.obs;
   RxBool isAutoRenewal = true.obs;
 
   List<String> items = ["Camera", "Phone", "Image", "Video"];
   String selectedItem = "Camera";
-
-  Future<void> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-        context: context,
-        initialDate: selectedDate,
-        firstDate: DateTime(2015, 8),
-        lastDate: DateTime(2101));
-    if (picked != null && picked != selectedDate) {
-      setState(() {
-        selectedDate = picked;
-        contractDateController.text =
-            '${selectedDate.day}/${selectedDate.month}/${selectedDate.year}';
-      });
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -148,12 +127,10 @@ class _GotoYourSubscriptionScreenState
                     ),
                     SizedBox(
                       width: Get.width / 3,
-                      child: TextFormField(
-                        controller: contractDateController,
+                      child: TextField(
+                        enabled: false,
+                        controller: TextEditingController(text: '08/10/2022'),
                         textAlign: TextAlign.center,
-                        onTap: () {
-                          _selectDate(context);
-                        },
                         decoration: const InputDecoration(
                           isDense: true,
                           contentPadding: EdgeInsets.zero,
@@ -177,10 +154,10 @@ class _GotoYourSubscriptionScreenState
                     ),
                     SizedBox(
                       width: Get.width / 3,
-                      child: TextFormField(
-                        controller: amountController,
-                        textAlign: TextAlign.end,
-                        keyboardType: TextInputType.number,
+                      child: TextField(
+                        enabled: false,
+                        controller: TextEditingController(text: '1000/-'),
+                        textAlign: TextAlign.center,
                         decoration: const InputDecoration(
                           isDense: true,
                           contentPadding: EdgeInsets.zero,
@@ -204,9 +181,10 @@ class _GotoYourSubscriptionScreenState
                     ),
                     SizedBox(
                       width: Get.width / 3,
-                      child: TextFormField(
-                        controller: parkingNumberController,
-                        textAlign: TextAlign.end,
+                      child: TextField(
+                        enabled: false,
+                        controller: TextEditingController(text: 'B1-02'),
+                        textAlign: TextAlign.center,
                         decoration: const InputDecoration(
                           isDense: true,
                           contentPadding: EdgeInsets.zero,
@@ -230,10 +208,10 @@ class _GotoYourSubscriptionScreenState
                     ),
                     SizedBox(
                       width: Get.width / 3,
-                      child: TextFormField(
-                        controller: slotQuantityController,
-                        textAlign: TextAlign.end,
-                        keyboardType: TextInputType.number,
+                      child: TextField(
+                        enabled: false,
+                        controller: TextEditingController(text: '1'),
+                        textAlign: TextAlign.center,
                         decoration: const InputDecoration(
                           isDense: true,
                           contentPadding: EdgeInsets.zero,
@@ -257,9 +235,10 @@ class _GotoYourSubscriptionScreenState
                     ),
                     SizedBox(
                       width: Get.width / 3,
-                      child: TextFormField(
-                        controller: locationController,
-                        textAlign: TextAlign.end,
+                      child: TextField(
+                        enabled: false,
+                        controller: TextEditingController(text: 'A'),
+                        textAlign: TextAlign.center,
                         decoration: const InputDecoration(
                           isDense: true,
                           contentPadding: EdgeInsets.zero,
@@ -338,7 +317,9 @@ class _GotoYourSubscriptionScreenState
           ),
         ),
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            renewalPopup();
+          },
           child: Container(
             width: Get.width / 2.5,
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
@@ -488,197 +469,201 @@ class _GotoYourSubscriptionScreenState
     showDialog(
       context: context,
       builder: (context) {
-        return Dialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          elevation: 16,
-          insetPadding:
-              const EdgeInsets.symmetric(horizontal: 20, vertical: 60),
-          child: ListView(
-            shrinkWrap: true,
-            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
-            children: <Widget>[
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 10,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: const Color(0xffFAFAFA),
-                  border: Border.all(
-                    color: greyColor,
-                  ),
-                ),
-                child: DropdownButton<String>(
-                  value: selectedItem,
-                  isExpanded: true,
-                  underline: const SizedBox(),
-                  onChanged: (value) {
-                    setState(() {
-                      selectedItem = value!;
-                    });
-                  },
-                  items: items
-                      .map<DropdownMenuItem<String>>(
-                        (String value) => DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(
-                            value,
-                          ),
-                        ),
-                      )
-                      .toList(),
-                ),
+        return StatefulBuilder(
+          builder: (context, state) {
+            return Dialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
               ),
-              height20,
-              const Text(
-                'Auto Renewal',
-                style: AppTextStyle.normalSemiBold16,
-              ),
-              const Divider(
-                color: borderGreyColor,
-              ),
-              Row(
-                children: [
-                  SizedBox(
-                    width: 100,
-                    child: ListTile(
-                      contentPadding: EdgeInsets.zero,
-                      dense: true,
-                      title: Text(
-                        'Yes',
-                        style: AppTextStyle.normalRegular14
-                            .copyWith(color: greyColor),
+              elevation: 16,
+              insetPadding:
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 60),
+              child: ListView(
+                shrinkWrap: true,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                children: <Widget>[
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: const Color(0xffFAFAFA),
+                      border: Border.all(
+                        color: greyColor,
                       ),
-                      trailing: Obx(() => Radio(
-                          value: true,
-                          groupValue: isAutoRenewal.value,
-                          fillColor: MaterialStateProperty.all(appColor),
-                          activeColor: appColor,
-                          onChanged: (value) {
-                            setState(() {
-                              isAutoRenewal.value = value as bool;
-                            });
-                          })),
+                    ),
+                    child: DropdownButton<String>(
+                      value: selectedItem,
+                      isExpanded: true,
+                      underline: const SizedBox(),
+                      onChanged: (value) {
+                        state(() {
+                          selectedItem = value!;
+                        });
+                      },
+                      items: items
+                          .map<DropdownMenuItem<String>>(
+                            (String value) => DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(
+                                value,
+                              ),
+                            ),
+                          )
+                          .toList(),
                     ),
                   ),
-                  width10,
-                  SizedBox(
-                    width: 100,
-                    child: ListTile(
-                      contentPadding: EdgeInsets.zero,
-                      dense: true,
-                      title: Text(
-                        'No',
-                        style: AppTextStyle.normalRegular14
-                            .copyWith(color: greyColor),
+                  height20,
+                  const Text(
+                    'Auto Renewal',
+                    style: AppTextStyle.normalSemiBold16,
+                  ),
+                  const Divider(
+                    color: borderGreyColor,
+                  ),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 100,
+                        child: ListTile(
+                          contentPadding: EdgeInsets.zero,
+                          dense: true,
+                          title: Text(
+                            'Yes',
+                            style: AppTextStyle.normalRegular14
+                                .copyWith(color: greyColor),
+                          ),
+                          trailing: Obx(() => Radio(
+                              value: true,
+                              groupValue: isAutoRenewal.value,
+                              fillColor: MaterialStateProperty.all(appColor),
+                              activeColor: appColor,
+                              onChanged: (value) {
+                                isAutoRenewal.value = value as bool;
+                                setState(() {});
+                              })),
+                        ),
                       ),
-                      trailing: Obx(
-                        () => Radio(
-                          value: false,
-                          groupValue: isAutoRenewal.value,
-                          fillColor: MaterialStateProperty.all(appColor),
-                          activeColor: appColor,
-                          onChanged: (value) {
-                            setState(() {
-                              isAutoRenewal.value = value as bool;
-                            });
+                      width10,
+                      SizedBox(
+                        width: 100,
+                        child: ListTile(
+                          contentPadding: EdgeInsets.zero,
+                          dense: true,
+                          title: Text(
+                            'No',
+                            style: AppTextStyle.normalRegular14
+                                .copyWith(color: greyColor),
+                          ),
+                          trailing: Obx(
+                            () => Radio(
+                              value: false,
+                              groupValue: isAutoRenewal.value,
+                              fillColor: MaterialStateProperty.all(appColor),
+                              activeColor: appColor,
+                              onChanged: (value) {
+                                setState(() {
+                                  isAutoRenewal.value = value as bool;
+                                });
+                              },
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  height10,
+                  Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          isTermAgree.value = !isTermAgree.value;
+                        },
+                        child: Obx(
+                          () => isTermAgree.value
+                              ? Container(
+                                  height: 20,
+                                  width: 20,
+                                  alignment: Alignment.center,
+                                  decoration: BoxDecoration(
+                                    color: appColor,
+                                    borderRadius: BorderRadius.circular(5),
+                                    border: Border.all(color: appColor),
+                                  ),
+                                  child: const Icon(
+                                    Icons.check_rounded,
+                                    color: whiteColor,
+                                    size: 18,
+                                  ),
+                                )
+                              : Container(
+                                  height: 20,
+                                  width: 20,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5),
+                                    border: Border.all(color: appColor),
+                                  ),
+                                ),
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'I Agree to the ',
+                              style: AppTextStyle.normalRegular16.copyWith(
+                                color: greyColor,
+                              ),
+                            ),
+                            TextSpan(
+                              text: 'Terms & Conditions',
+                              style: AppTextStyle.normalRegular16.copyWith(
+                                color: appColor,
+                                decoration: TextDecoration.underline,
+                              ),
+                              recognizer: TapGestureRecognizer()..onTap = () {},
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  height20,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: AppBorderButton(
+                          title: 'Cancel',
+                          height: 45,
+                          radius: 10,
+                          onTap: () {
+                            Get.back();
                           },
                         ),
                       ),
-                    ),
-                  ),
-                ],
-              ),
-              height10,
-              Row(
-                children: [
-                  Obx(
-                    () => GestureDetector(
-                      onTap: () {
-                        isTermAgree.value != isTermAgree.value;
-                      },
-                      child: isTermAgree.value
-                          ? Container(
-                              height: 20,
-                              width: 20,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                color: appColor,
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all(color: appColor),
-                              ),
-                              child: const Icon(
-                                Icons.check_rounded,
-                                color: whiteColor,
-                                size: 18,
-                              ),
-                            )
-                          : Container(
-                              height: 20,
-                              width: 20,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all(color: appColor),
-                              ),
-                            ),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        TextSpan(
-                          text: 'I Agree to the ',
-                          style: AppTextStyle.normalRegular16.copyWith(
-                            color: greyColor,
-                          ),
+                      width15,
+                      Expanded(
+                        child: AppFillButton(
+                          title: 'Proceed',
+                          radius: 10,
+                          height: 45,
+                          onTap: () {
+                            Get.to(() => const PaymentScreen());
+                          },
                         ),
-                        TextSpan(
-                          text: 'Terms & Conditions',
-                          style: AppTextStyle.normalRegular16.copyWith(
-                            color: appColor,
-                            decoration: TextDecoration.underline,
-                          ),
-                          recognizer: TapGestureRecognizer()..onTap = () {},
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
+                  height10,
                 ],
               ),
-              height20,
-              Row(
-                children: [
-                  Expanded(
-                    child: AppBorderButton(
-                      title: 'Cancel',
-                      height: 45,
-                      radius: 10,
-                      onTap: () {
-                        Get.back();
-                      },
-                    ),
-                  ),
-                  width15,
-                  Expanded(
-                    child: AppFillButton(
-                      title: 'Proceed',
-                      radius: 10,
-                      height: 45,
-                      onTap: () {
-                        Get.to(() => const PaymentScreen());
-                      },
-                    ),
-                  ),
-                ],
-              ),
-              height10,
-            ],
-          ),
+            );
+          },
         );
       },
     );
