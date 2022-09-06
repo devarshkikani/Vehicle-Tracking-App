@@ -33,77 +33,149 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Stack(
-          children: [
-            Image.asset(
-              AppAsset.resetPasswrod,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30.0),
-              child: SafeArea(
-                child: Column(
-                  children: [
-                    customHeight(400),
-                    const Text(
-                      'Reset Via Email',
-                      style: AppTextStyle.bold20,
-                    ),
-                    height10,
-                    Text(
-                      'Enter the email associated with your account and we will send you a link to rest your password.',
-                      textAlign: TextAlign.center,
-                      style: AppTextStyle.normalRegular14.copyWith(
-                        color: greyColor,
-                      ),
-                    ),
-                    height25,
-                    TextFormField(
-                      controller: emailController,
-                      style: AppTextStyle.normalRegular16.copyWith(
-                        color: blackColor,
-                      ),
-                      decoration: InputDecoration(
-                        hintText: "Enter Your Email ID",
-                        hintStyle: AppTextStyle.normalRegular16.copyWith(
-                          color: greyColor,
-                        ),
-                        prefixIcon: const Padding(
-                          padding: EdgeInsets.only(left: 15.0, right: 10),
-                          child: Icon(
-                            Icons.mail_outline_rounded,
-                            color: borderGreyColor,
-                          ),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(color: borderGreyColor),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(color: Colors.red),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                      ),
-                    ),
-                    height25,
-                    AppFillButton(
-                      title: 'Confirm',
-                      onTap: () {},
-                    ),
-                    height25,
-                    appRichText(
-                      "Didn’t Receive the Link? ",
-                      "Resend",
-                      decoration: TextDecoration.underline,
-                      onTap: () {},
-                    ),
-                    height25,
-                  ],
+      body: Container(
+        height: Get.height,
+        width: Get.width,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(AppAsset.resetPasswrod),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              const Text(
+                'Reset Via Email',
+                style: AppTextStyle.bold20,
+              ),
+              height10,
+              Text(
+                'Enter the email associated with your account and we will send you a link to rest your password.',
+                textAlign: TextAlign.center,
+                style: AppTextStyle.normalRegular14.copyWith(
+                  color: greyColor,
                 ),
               ),
-            ),
-          ],
+              height25,
+              TextFormField(
+                controller: emailController,
+                style: AppTextStyle.normalRegular16.copyWith(
+                  color: blackColor,
+                ),
+                decoration: InputDecoration(
+                  hintText: "Enter Your Email ID",
+                  hintStyle: AppTextStyle.normalRegular16.copyWith(
+                    color: greyColor,
+                  ),
+                  prefixIcon: const Padding(
+                    padding: EdgeInsets.only(left: 15.0, right: 10),
+                    child: Icon(
+                      Icons.mail_outline_rounded,
+                      color: borderGreyColor,
+                    ),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: borderGreyColor),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Colors.red),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                ),
+              ),
+              height25,
+              AppFillButton(
+                title: 'Confirm',
+                onTap: () {},
+              ),
+              height25,
+              appRichText(
+                "Didn’t Receive the Link? ",
+                "Resend",
+                decoration: TextDecoration.underline,
+                onTap: () {},
+              ),
+              height25,
+            ],
+          ),
         ),
+        // child: SingleChildScrollView(
+        //   child: Stack(
+        //     children: [
+        //       Image.asset(
+        //         AppAsset.resetPasswrod,
+        //       ),
+        //       Padding(
+        //         padding: const EdgeInsets.symmetric(horizontal: 30.0),
+        //         child: SafeArea(
+        //           child: Column(
+        //             children: [
+        //               customHeight(400),
+        // const Text(
+        //   'Reset Via Email',
+        //   style: AppTextStyle.bold20,
+        // ),
+        // height10,
+        // Text(
+        //   'Enter the email associated with your account and we will send you a link to rest your password.',
+        //   textAlign: TextAlign.center,
+        //   style: AppTextStyle.normalRegular14.copyWith(
+        //     color: greyColor,
+        //   ),
+        // ),
+        // height25,
+        // TextFormField(
+        //   controller: emailController,
+        //   style: AppTextStyle.normalRegular16.copyWith(
+        //     color: blackColor,
+        //   ),
+        //   decoration: InputDecoration(
+        //     hintText: "Enter Your Email ID",
+        //     hintStyle: AppTextStyle.normalRegular16.copyWith(
+        //       color: greyColor,
+        //     ),
+        //     prefixIcon: const Padding(
+        //       padding: EdgeInsets.only(left: 15.0, right: 10),
+        //       child: Icon(
+        //         Icons.mail_outline_rounded,
+        //         color: borderGreyColor,
+        //       ),
+        //     ),
+        //     enabledBorder: OutlineInputBorder(
+        //       borderSide:
+        //           const BorderSide(color: borderGreyColor),
+        //       borderRadius: BorderRadius.circular(30),
+        //     ),
+        //     focusedBorder: OutlineInputBorder(
+        //       borderSide: const BorderSide(color: Colors.red),
+        //       borderRadius: BorderRadius.circular(30),
+        //     ),
+        //   ),
+        // ),
+        // height25,
+        // AppFillButton(
+        //   title: 'Confirm',
+        //   onTap: () {},
+        // ),
+        // height25,
+        // appRichText(
+        //   "Didn’t Receive the Link? ",
+        //   "Resend",
+        //   decoration: TextDecoration.underline,
+        //   onTap: () {},
+        // ),
+        // height25,
+        //             ],
+        //           ),
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // ),
       ),
     );
   }
