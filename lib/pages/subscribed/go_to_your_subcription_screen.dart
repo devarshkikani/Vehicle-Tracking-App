@@ -129,6 +129,7 @@ class _GotoYourSubscriptionScreenState
                       width: Get.width / 3,
                       child: TextField(
                         enabled: false,
+                        style: AppTextStyle.normalRegular14,
                         controller: TextEditingController(text: '08/10/2022'),
                         textAlign: TextAlign.center,
                         decoration: const InputDecoration(
@@ -156,6 +157,7 @@ class _GotoYourSubscriptionScreenState
                       width: Get.width / 3,
                       child: TextField(
                         enabled: false,
+                        style: AppTextStyle.normalRegular14,
                         controller: TextEditingController(text: '1000/-'),
                         textAlign: TextAlign.center,
                         decoration: const InputDecoration(
@@ -183,6 +185,7 @@ class _GotoYourSubscriptionScreenState
                       width: Get.width / 3,
                       child: TextField(
                         enabled: false,
+                        style: AppTextStyle.normalRegular14,
                         controller: TextEditingController(text: 'B1-02'),
                         textAlign: TextAlign.center,
                         decoration: const InputDecoration(
@@ -210,6 +213,7 @@ class _GotoYourSubscriptionScreenState
                       width: Get.width / 3,
                       child: TextField(
                         enabled: false,
+                        style: AppTextStyle.normalRegular14,
                         controller: TextEditingController(text: '1'),
                         textAlign: TextAlign.center,
                         decoration: const InputDecoration(
@@ -237,6 +241,7 @@ class _GotoYourSubscriptionScreenState
                       width: Get.width / 3,
                       child: TextField(
                         enabled: false,
+                        style: AppTextStyle.normalRegular14,
                         controller: TextEditingController(text: 'A'),
                         textAlign: TextAlign.center,
                         decoration: const InputDecoration(

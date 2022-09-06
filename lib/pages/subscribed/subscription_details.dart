@@ -18,15 +18,8 @@ class SubscriptionDetailsScreen extends StatefulWidget {
 }
 
 class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
-  TextEditingController parkingTypeController = TextEditingController();
-  TextEditingController parkingNumberController = TextEditingController();
-  TextEditingController startingDateController = TextEditingController();
-  TextEditingController endDateController = TextEditingController();
-  TextEditingController autoRenewwal = TextEditingController();
-  TextEditingController accessControlsController = TextEditingController();
-
-  List<String> controlsList = ['Camera', 'Camera', 'Camera'];
-  String selectedValue = 'Camera';
+  List<String> items = ["Camera", "Phone", "Image", "Video"];
+  String selectedItem = "Camera";
 
   RxBool isReserved = true.obs;
   RxBool isYearly = true.obs;
@@ -41,19 +34,6 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
     'Remote Control',
     'QR Code'
   ];
-
-  Future<String> _selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-        context: context,
-        initialDate: DateTime.now(),
-        firstDate: DateTime(2015, 8),
-        lastDate: DateTime(2101));
-    if (picked != null) {
-      return '${picked.day}/${picked.month}/${picked.year}';
-    } else {
-      return '';
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +58,6 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
                           style: AppTextStyle.bold20,
                         ),
                       ),
-                      height15,
                       ListView.separated(
                         itemCount: 5,
                         shrinkWrap: true,
@@ -195,9 +174,11 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
                     ),
                     SizedBox(
                       width: Get.width / 3,
-                      child: TextFormField(
+                      child: TextField(
                         textAlign: TextAlign.end,
-                        controller: parkingTypeController,
+                        enabled: false,
+                        style: AppTextStyle.normalRegular14,
+                        controller: TextEditingController(text: 'Reserved'),
                         decoration: const InputDecoration(
                           isDense: true,
                           contentPadding: EdgeInsets.zero,
@@ -221,10 +202,11 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
                     ),
                     SizedBox(
                       width: Get.width / 3,
-                      child: TextFormField(
+                      child: TextField(
                         textAlign: TextAlign.end,
-                        controller: parkingNumberController,
-                        keyboardType: TextInputType.number,
+                        enabled: false,
+                        style: AppTextStyle.normalRegular14,
+                        controller: TextEditingController(text: 'B2-07'),
                         decoration: const InputDecoration(
                           isDense: true,
                           contentPadding: EdgeInsets.zero,
@@ -248,18 +230,15 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
                     ),
                     SizedBox(
                       width: Get.width / 3,
-                      child: TextFormField(
+                      child: TextField(
                         textAlign: TextAlign.end,
-                        controller: startingDateController,
+                        enabled: false,
+                        style: AppTextStyle.normalRegular14,
+                        controller: TextEditingController(text: '07/08/2022'),
                         decoration: const InputDecoration(
                           isDense: true,
                           contentPadding: EdgeInsets.zero,
                         ),
-                        onTap: () async {
-                          startingDateController.text =
-                              await _selectDate(context);
-                          setState(() {});
-                        },
                       ),
                     ),
                   ],
@@ -279,13 +258,11 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
                     ),
                     SizedBox(
                       width: Get.width / 3,
-                      child: TextFormField(
+                      child: TextField(
                         textAlign: TextAlign.end,
-                        controller: endDateController,
-                        keyboardType: TextInputType.number,
-                        onTap: () async {
-                          endDateController.text = await _selectDate(context);
-                        },
+                        enabled: false,
+                        style: AppTextStyle.normalRegular14,
+                        controller: TextEditingController(text: '08/09/2022'),
                         decoration: const InputDecoration(
                           isDense: true,
                           contentPadding: EdgeInsets.zero,
@@ -309,9 +286,11 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
                     ),
                     SizedBox(
                       width: Get.width / 3,
-                      child: TextFormField(
+                      child: TextField(
                         textAlign: TextAlign.end,
-                        controller: autoRenewwal,
+                        enabled: false,
+                        style: AppTextStyle.normalRegular14,
+                        controller: TextEditingController(text: 'Yes'),
                         decoration: const InputDecoration(
                           isDense: true,
                           contentPadding: EdgeInsets.zero,
@@ -337,29 +316,32 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
                       width: Get.width / 3,
                       child: Align(
                         alignment: Alignment.centerRight,
-                        child: DropdownButton<String>(
-                          hint: selectedValue == ''
-                              ? const Text(
-                                  'Camera',
-                                  style: AppTextStyle.normalRegular16,
-                                )
-                              : Text(
-                                  selectedValue,
-                                  style: AppTextStyle.normalRegular16,
-                                ),
-                          items: controlsList.map((String value) {
-                            return DropdownMenuItem<String>(
-                              value: selectedValue,
-                              child: Text(
-                                value,
-                                style: AppTextStyle.normalRegular16,
-                              ),
-                            );
-                          }).toList(),
-                          onChanged: (String? newValue) {
-                            selectedValue = newValue ?? '';
-                            setState(() {});
-                          },
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            DropdownButton<String>(
+                              value: selectedItem,
+                              isExpanded: false,
+                              isDense: true,
+                              underline: const SizedBox(),
+                              onChanged: (value) {
+                                setState(() {
+                                  selectedItem = value!;
+                                });
+                              },
+                              items: items
+                                  .map<DropdownMenuItem<String>>(
+                                    (String value) => DropdownMenuItem<String>(
+                                      value: value,
+                                      child: Text(
+                                        value,
+                                      ),
+                                    ),
+                                  )
+                                  .toList(),
+                            ),
+                            const Divider(),
+                          ],
                         ),
                       ),
                     ),
