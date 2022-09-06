@@ -28,8 +28,8 @@ class _GotoYourSubscriptionScreenState
   RxBool isTermAgree = false.obs;
   RxBool isAutoRenewal = true.obs;
 
-  List<String> slotList = ['Camera', 'Camera', 'Camera'];
-  RxString slot = 'Camera'.obs;
+  List<String> items = ["Camera", "Phone", "Image", "Video"];
+  String selectedItem = "Camera";
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -489,8 +489,9 @@ class _GotoYourSubscriptionScreenState
       context: context,
       builder: (context) {
         return Dialog(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
           elevation: 16,
           insetPadding:
               const EdgeInsets.symmetric(horizontal: 20, vertical: 60),
@@ -499,40 +500,35 @@ class _GotoYourSubscriptionScreenState
             padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
             children: <Widget>[
               Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                ),
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: const Color(0xffFAFAFA),
-                    border: Border.all(
-                      color: greyColor,
-                    )),
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color(0xffFAFAFA),
+                  border: Border.all(
+                    color: greyColor,
+                  ),
+                ),
                 child: DropdownButton<String>(
-                  hint: slot.value == ''
-                      ? Text(
-                          'Add a slot',
-                          style: AppTextStyle.normalRegular16
-                              .copyWith(color: borderGreyColor),
-                        )
-                      : Text(
-                          slot.value,
-                          style: AppTextStyle.normalRegular16
-                              .copyWith(color: borderGreyColor),
-                        ),
-                  icon: const Icon(Icons.keyboard_arrow_down),
-                  iconSize: 15,
+                  value: selectedItem,
+                  isExpanded: true,
                   underline: const SizedBox(),
-                  items: slotList.map((String value) {
-                    return DropdownMenuItem<String>(
-                      value: slot.value,
-                      child: Text(
-                        value,
-                        style: AppTextStyle.normalRegular16,
-                      ),
-                    );
-                  }).toList(),
-                  onChanged: (String? newValue) {
-                    slot.value = newValue ?? '';
-                    setState(() {});
+                  onChanged: (value) {
+                    setState(() {
+                      selectedItem = value!;
+                    });
                   },
+                  items: items
+                      .map<DropdownMenuItem<String>>(
+                        (String value) => DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(
+                            value,
+                          ),
+                        ),
+                      )
+                      .toList(),
                 ),
               ),
               height20,
@@ -578,7 +574,8 @@ class _GotoYourSubscriptionScreenState
                         style: AppTextStyle.normalRegular14
                             .copyWith(color: greyColor),
                       ),
-                      trailing: Obx(() => Radio(
+                      trailing: Obx(
+                        () => Radio(
                           value: false,
                           groupValue: isAutoRenewal.value,
                           fillColor: MaterialStateProperty.all(appColor),
@@ -587,7 +584,9 @@ class _GotoYourSubscriptionScreenState
                             setState(() {
                               isAutoRenewal.value = value as bool;
                             });
-                          })),
+                          },
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -596,14 +595,38 @@ class _GotoYourSubscriptionScreenState
               Row(
                 children: [
                   Obx(
-                    () => Checkbox(
-                      value: isTermAgree.value,
-                      fillColor: MaterialStateProperty.all(appColor),
-                      activeColor: appColor,
-                      onChanged: (bool? value) {
-                        isTermAgree.value = value ?? false;
+                    () => GestureDetector(
+                      onTap: () {
+                        isTermAgree.value != isTermAgree.value;
                       },
+                      child: isTermAgree.value
+                          ? Container(
+                              height: 20,
+                              width: 20,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: appColor,
+                                borderRadius: BorderRadius.circular(5),
+                                border: Border.all(color: appColor),
+                              ),
+                              child: const Icon(
+                                Icons.check_rounded,
+                                color: whiteColor,
+                                size: 18,
+                              ),
+                            )
+                          : Container(
+                              height: 20,
+                              width: 20,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(5),
+                                border: Border.all(color: appColor),
+                              ),
+                            ),
                     ),
+                  ),
+                  const SizedBox(
+                    width: 10,
                   ),
                   RichText(
                     text: TextSpan(
@@ -633,6 +656,7 @@ class _GotoYourSubscriptionScreenState
                   Expanded(
                     child: AppBorderButton(
                       title: 'Cancel',
+                      height: 45,
                       radius: 10,
                       onTap: () {
                         Get.back();
@@ -644,6 +668,7 @@ class _GotoYourSubscriptionScreenState
                     child: AppFillButton(
                       title: 'Proceed',
                       radius: 10,
+                      height: 45,
                       onTap: () {
                         Get.to(() => const PaymentScreen());
                       },
