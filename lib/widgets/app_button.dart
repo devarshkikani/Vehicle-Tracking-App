@@ -8,6 +8,7 @@ class AppFillButton extends StatelessWidget {
   final String title;
   final Color? buttonColor;
   final double? radius;
+  final double? fontSize;
   final void Function() onTap;
   const AppFillButton(
       {Key? key,
@@ -15,6 +16,7 @@ class AppFillButton extends StatelessWidget {
       this.height,
       this.buttonColor,
       this.radius,
+      this.fontSize,
       required this.title,
       required this.onTap})
       : super(key: key);
@@ -39,8 +41,10 @@ class AppFillButton extends StatelessWidget {
         onPressed: onTap,
         child: Text(
           title,
-          style: const TextStyle(
-              fontSize: 18.0, fontWeight: FontWeight.w600, color: whiteColor),
+          style: TextStyle(
+              fontSize: fontSize ?? 18.0,
+              fontWeight: FontWeight.w600,
+              color: whiteColor),
         ),
       ),
     );
@@ -53,6 +57,7 @@ class AppBorderButton extends StatelessWidget {
   final String title;
   final Color? buttonColor;
   final double? radius;
+  final double? fontSize;
   final void Function() onTap;
   const AppBorderButton(
       {Key? key,
@@ -61,6 +66,7 @@ class AppBorderButton extends StatelessWidget {
       this.buttonColor,
       this.radius,
       required this.title,
+      this.fontSize,
       required this.onTap})
       : super(key: key);
 
@@ -87,7 +93,7 @@ class AppBorderButton extends StatelessWidget {
         child: Text(
           title,
           style: TextStyle(
-              fontSize: 18.0,
+              fontSize: fontSize ?? 18.0,
               fontWeight: FontWeight.w600,
               color: buttonColor ?? appColor),
         ),

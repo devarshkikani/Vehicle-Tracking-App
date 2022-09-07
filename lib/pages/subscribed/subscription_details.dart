@@ -18,6 +18,13 @@ class SubscriptionDetailsScreen extends StatefulWidget {
 }
 
 class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
+  // TextEditingController parkingTypeController = TextEditingController();
+  // TextEditingController parkingNumberController = TextEditingController();
+  // TextEditingController startingDateController = TextEditingController();
+  // TextEditingController endDateController = TextEditingController();
+  // TextEditingController autoRenewwal = TextEditingController();
+  // TextEditingController accessControlsController = TextEditingController();
+
   List<String> items = ["Camera", "Phone", "Image", "Video"];
   String selectedItem = "Camera";
 
@@ -317,7 +324,6 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
                       child: Align(
                         alignment: Alignment.centerRight,
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             DropdownButton<String>(
                               value: selectedItem,
@@ -371,11 +377,11 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 25),
             children: <Widget>[
               parkingType(),
-              height15,
+              customHeight(30),
               changeContractPeriod(),
-              height15,
+              customHeight(30),
               changeAutoRenewal(),
-              height15,
+              customHeight(30),
               const Text(
                 'Change Access Control',
                 style: AppTextStyle.normalSemiBold16,
@@ -384,11 +390,11 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
                 color: borderGreyColor,
               ),
               changeAccessControl(),
-              height15,
+              customHeight(30),
               feedBack(),
-              height25,
+              customHeight(30),
               bottomButtons(),
-              height15,
+              height10,
             ],
           ),
         );
@@ -410,41 +416,58 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
         const SizedBox(
           height: 10,
         ),
-        ListTile(
-          contentPadding: EdgeInsets.zero,
-          dense: true,
-          title: Text(
-            'Reserved Parking',
-            style: AppTextStyle.normalRegular14.copyWith(color: greyColor),
-          ),
-          trailing: Obx(() => Radio(
-              value: true,
-              groupValue: isReserved.value,
-              fillColor: MaterialStateProperty.all(appColor),
-              activeColor: appColor,
-              onChanged: (value) {
-                setState(() {
-                  isReserved.value = value as bool;
-                });
-              })),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Reserved Parking',
+              style: AppTextStyle.normalRegular14.copyWith(color: greyColor),
+            ),
+            Obx(
+              () => Radio(
+                value: true,
+                groupValue: isReserved.value,
+                visualDensity: const VisualDensity(
+                    horizontal: VisualDensity.minimumDensity,
+                    vertical: VisualDensity.minimumDensity),
+                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                fillColor: MaterialStateProperty.all(appColor),
+                activeColor: appColor,
+                onChanged: (value) {
+                  setState(() {
+                    isReserved.value = value as bool;
+                  });
+                },
+              ),
+            ),
+          ],
         ),
-        ListTile(
-          contentPadding: EdgeInsets.zero,
-          dense: true,
-          title: Text(
-            'Open Parking',
-            style: AppTextStyle.normalRegular14.copyWith(color: greyColor),
-          ),
-          trailing: Obx(() => Radio(
-              value: false,
-              fillColor: MaterialStateProperty.all(appColor),
-              activeColor: appColor,
-              groupValue: isReserved.value,
-              onChanged: (value) {
-                setState(() {
-                  isReserved.value = value as bool;
-                });
-              })),
+        height15,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Open Parking',
+              style: AppTextStyle.normalRegular14.copyWith(color: greyColor),
+            ),
+            Obx(
+              () => Radio(
+                value: false,
+                groupValue: isReserved.value,
+                visualDensity: const VisualDensity(
+                    horizontal: VisualDensity.minimumDensity,
+                    vertical: VisualDensity.minimumDensity),
+                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                fillColor: MaterialStateProperty.all(appColor),
+                activeColor: appColor,
+                onChanged: (value) {
+                  setState(() {
+                    isReserved.value = value as bool;
+                  });
+                },
+              ),
+            ),
+          ],
         ),
       ],
     );
@@ -464,41 +487,58 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
         const SizedBox(
           height: 10,
         ),
-        ListTile(
-          contentPadding: EdgeInsets.zero,
-          dense: true,
-          title: Text(
-            'Yearly',
-            style: AppTextStyle.normalRegular14.copyWith(color: greyColor),
-          ),
-          trailing: Obx(() => Radio(
-              value: true,
-              fillColor: MaterialStateProperty.all(appColor),
-              activeColor: appColor,
-              groupValue: isYearly.value,
-              onChanged: (value) {
-                setState(() {
-                  isYearly.value = value as bool;
-                });
-              })),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Yearly',
+              style: AppTextStyle.normalRegular14.copyWith(color: greyColor),
+            ),
+            Obx(
+              () => Radio(
+                value: true,
+                groupValue: isYearly.value,
+                visualDensity: const VisualDensity(
+                    horizontal: VisualDensity.minimumDensity,
+                    vertical: VisualDensity.minimumDensity),
+                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                fillColor: MaterialStateProperty.all(appColor),
+                activeColor: appColor,
+                onChanged: (value) {
+                  setState(() {
+                    isYearly.value = value as bool;
+                  });
+                },
+              ),
+            ),
+          ],
         ),
-        ListTile(
-          contentPadding: EdgeInsets.zero,
-          dense: true,
-          title: Text(
-            'Montly',
-            style: AppTextStyle.normalRegular14.copyWith(color: greyColor),
-          ),
-          trailing: Obx(() => Radio(
-              value: false,
-              groupValue: isYearly.value,
-              fillColor: MaterialStateProperty.all(appColor),
-              activeColor: appColor,
-              onChanged: (value) {
-                setState(() {
-                  isYearly.value = value as bool;
-                });
-              })),
+        height15,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Montly',
+              style: AppTextStyle.normalRegular14.copyWith(color: greyColor),
+            ),
+            Obx(
+              () => Radio(
+                value: false,
+                groupValue: isYearly.value,
+                visualDensity: const VisualDensity(
+                    horizontal: VisualDensity.minimumDensity,
+                    vertical: VisualDensity.minimumDensity),
+                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                fillColor: MaterialStateProperty.all(appColor),
+                activeColor: appColor,
+                onChanged: (value) {
+                  setState(() {
+                    isYearly.value = value as bool;
+                  });
+                },
+              ),
+            ),
+          ],
         ),
       ],
     );
@@ -516,67 +556,107 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
           color: borderGreyColor,
         ),
         height10,
-        ListTile(
-          contentPadding: EdgeInsets.zero,
-          dense: true,
-          title: Text(
-            'Yes',
-            style: AppTextStyle.normalRegular14.copyWith(color: greyColor),
-          ),
-          trailing: Obx(() => Radio(
-              value: true,
-              groupValue: isAutoRenewal.value,
-              fillColor: MaterialStateProperty.all(appColor),
-              activeColor: appColor,
-              onChanged: (value) {
-                setState(() {
-                  isAutoRenewal.value = value as bool;
-                });
-              })),
-        ),
-        ListTile(
-          contentPadding: EdgeInsets.zero,
-          dense: true,
-          title: Text(
-            'No',
-            style: AppTextStyle.normalRegular14.copyWith(color: greyColor),
-          ),
-          trailing: Obx(() => Radio(
-              value: false,
-              groupValue: isAutoRenewal.value,
-              fillColor: MaterialStateProperty.all(appColor),
-              activeColor: appColor,
-              onChanged: (value) {
-                setState(() {
-                  isAutoRenewal.value = value as bool;
-                });
-              })),
-        ),
-        height10,
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            Text(
+              'Yes',
+              style: AppTextStyle.normalRegular14.copyWith(color: greyColor),
+            ),
             Obx(
-              () => Checkbox(
-                value: isTermAgree.value,
+              () => Radio(
+                value: true,
+                groupValue: isAutoRenewal.value,
+                visualDensity: const VisualDensity(
+                    horizontal: VisualDensity.minimumDensity,
+                    vertical: VisualDensity.minimumDensity),
+                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 fillColor: MaterialStateProperty.all(appColor),
                 activeColor: appColor,
-                onChanged: (bool? value) {
-                  isTermAgree.value = value ?? false;
+                onChanged: (value) {
+                  setState(() {
+                    isAutoRenewal.value = value as bool;
+                  });
                 },
               ),
+            ),
+          ],
+        ),
+        height15,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'No',
+              style: AppTextStyle.normalRegular14.copyWith(color: greyColor),
+            ),
+            Obx(
+              () => Radio(
+                value: false,
+                groupValue: isAutoRenewal.value,
+                visualDensity: const VisualDensity(
+                    horizontal: VisualDensity.minimumDensity,
+                    vertical: VisualDensity.minimumDensity),
+                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                fillColor: MaterialStateProperty.all(appColor),
+                activeColor: appColor,
+                onChanged: (value) {
+                  setState(() {
+                    isAutoRenewal.value = value as bool;
+                  });
+                },
+              ),
+            ),
+          ],
+        ),
+        height20,
+        Row(
+          children: [
+            GestureDetector(
+              onTap: () {
+                isTermAgree.value = !isTermAgree.value;
+              },
+              child: Obx(
+                () => isTermAgree.value
+                    ? Container(
+                        height: 20,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: appColor,
+                          border: Border.all(color: appColor),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: const Icon(
+                          Icons.check_rounded,
+                          color: whiteColor,
+                          size: 18,
+                        ),
+                      )
+                    : Container(
+                        height: 20,
+                        width: 20,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: appColor),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                      ),
+              ),
+            ),
+            const SizedBox(
+              width: 10,
             ),
             RichText(
               text: TextSpan(
                 children: [
                   TextSpan(
                     text: 'I Agree to the ',
-                    style: AppTextStyle.normalRegular16.copyWith(
+                    style: AppTextStyle.normalRegular14.copyWith(
                       color: greyColor,
                     ),
                   ),
                   TextSpan(
                     text: 'Terms & Conditions',
-                    style: AppTextStyle.normalRegular16.copyWith(
+                    style: AppTextStyle.normalRegular14.copyWith(
                       color: appColor,
                       decoration: TextDecoration.underline,
                     ),
@@ -594,26 +674,54 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
   Widget changeAccessControl() {
     return Wrap(
       runAlignment: WrapAlignment.spaceBetween,
+      alignment: WrapAlignment.spaceBetween,
       children: List.generate(
         changeAccessControlList.length,
         (index) => SizedBox(
-          width: 155,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                changeAccessControlList[index],
-                style: AppTextStyle.normalRegular14.copyWith(color: greyColor),
-              ),
-              Obx(() => Checkbox(
-                    value: changeAccessControlSelected.value == index,
-                    fillColor: MaterialStateProperty.all(appColor),
-                    activeColor: appColor,
-                    onChanged: (bool? value) {
-                      changeAccessControlSelected.value = index;
-                    },
-                  )),
-            ],
+          width: 140,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  changeAccessControlList[index],
+                  style:
+                      AppTextStyle.normalRegular14.copyWith(color: greyColor),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    changeAccessControlSelected.value = index;
+                  },
+                  child: Obx(
+                    () => changeAccessControlSelected.value == index
+                        ? Container(
+                            height: 20,
+                            width: 20,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: appColor,
+                              border: Border.all(color: appColor),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            child: const Icon(
+                              Icons.check_rounded,
+                              color: whiteColor,
+                              size: 18,
+                            ),
+                          )
+                        : Container(
+                            height: 20,
+                            width: 20,
+                            decoration: BoxDecoration(
+                              border: Border.all(color: appColor),
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                          ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -681,6 +789,8 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
               child: AppBorderButton(
                 title: 'No, Go Back',
                 radius: 10,
+                fontSize: 16,
+                height: 55,
                 onTap: () {
                   Get.back();
                 },
@@ -691,6 +801,8 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
               child: AppFillButton(
                 title: 'Save Changes',
                 radius: 10,
+                fontSize: 16,
+                height: 55,
                 onTap: () {
                   submitPopup();
                 },
@@ -702,7 +814,8 @@ class _SubscriptionDetailsScreenState extends State<SubscriptionDetailsScreen> {
         AppBorderButton(
           title: 'Cancel this Parking',
           radius: 10,
-          height: 50,
+          fontSize: 16,
+          height: 55,
           onTap: () {
             cancelPopup();
           },
