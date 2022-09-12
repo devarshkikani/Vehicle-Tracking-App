@@ -36,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Image.asset(
                 AppAsset.loginImage,
               ),
-              customHeight(49),
+              customHeight(20),
               const Text(
                 "LogIn",
                 style: TextStyle(fontWeight: FontWeight.w700),
