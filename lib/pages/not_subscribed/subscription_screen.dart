@@ -23,10 +23,11 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          SingleChildScrollView(
-            child: Stack(
+      body: SizedBox(
+        height: Get.height,
+        child: Stack(
+          children: [
+            Stack(
               children: [
                 Stack(
                   children: [
@@ -48,9 +49,10 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(
-                      top: 300.0, left: 15, right: 15, bottom: 10),
+                  padding:
+                      const EdgeInsets.only(left: 15, right: 15, bottom: 10),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
                       const Align(
                         alignment: Alignment.centerRight,
@@ -405,24 +407,24 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                 ),
               ],
             ),
-          ),
-          SafeArea(
-            child: Align(
-              alignment: Alignment.topLeft,
-              child: Padding(
-                padding: const EdgeInsets.all(15),
-                child: GestureDetector(
-                  onTap: () {
-                    Get.back();
-                  },
-                  child: const Icon(
-                    Icons.arrow_back_rounded,
+            SafeArea(
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: const Icon(
+                      Icons.arrow_back_rounded,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

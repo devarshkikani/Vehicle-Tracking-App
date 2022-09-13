@@ -33,22 +33,10 @@ class _ParkingSlotScreenState extends State<ParkingSlotScreen> {
     {'title': 'S2', 'image': AppAsset.bike, 'status': 'Disabled'},
     {'title': 'S3', 'image': AppAsset.bike, 'status': 'Reserved'},
     {'title': 'S4', 'image': AppAsset.bike, 'status': 'Selected'},
-    {'title': 'A1', 'image': AppAsset.bike, 'status': 'Available'},
-    {'title': 'A2', 'image': AppAsset.newcar, 'status': 'Reserved'},
-    {'title': 'A3', 'image': AppAsset.newcar, 'status': 'Disabled'},
-    {'title': 'A4', 'image': AppAsset.newcar, 'status': 'Reserved'},
-    {'title': 'S1', 'image': AppAsset.bike, 'status': 'Disabled'},
-    {'title': 'S2', 'image': AppAsset.bike, 'status': 'Disabled'},
-    {'title': 'S3', 'image': AppAsset.bike, 'status': 'Reserved'},
-    {'title': 'S4', 'image': AppAsset.bike, 'status': 'Selected'},
-    {'title': 'A1', 'image': AppAsset.bike, 'status': 'Available'},
-    {'title': 'A2', 'image': AppAsset.newcar, 'status': 'Reserved'},
-    {'title': 'A3', 'image': AppAsset.newcar, 'status': 'Disabled'},
-    {'title': 'A4', 'image': AppAsset.newcar, 'status': 'Reserved'},
-    {'title': 'S1', 'image': AppAsset.bike, 'status': 'Disabled'},
-    {'title': 'S2', 'image': AppAsset.bike, 'status': 'Disabled'},
-    {'title': 'S3', 'image': AppAsset.bike, 'status': 'Reserved'},
-    {'title': 'S4', 'image': AppAsset.bike, 'status': 'Selected'},
+    // {'title': 'A1', 'image': AppAsset.bike, 'status': 'Available'},
+    // {'title': 'A2', 'image': AppAsset.newcar, 'status': 'Reserved'},
+    // {'title': 'A3', 'image': AppAsset.newcar, 'status': 'Disabled'},
+    // {'title': 'A4', 'image': AppAsset.newcar, 'status': 'Reserved'},
   ];
 
   TextEditingController vehicleNumber = TextEditingController();
@@ -111,7 +99,7 @@ class _ParkingSlotScreenState extends State<ParkingSlotScreen> {
                       child: GridView.builder(
                           itemCount: parkingList.length,
                           // shrinkWrap: true,
-                          // physics: NeverScrollableScrollPhysics(),
+                          physics: NeverScrollableScrollPhysics(),
                           padding: EdgeInsets.zero,
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
