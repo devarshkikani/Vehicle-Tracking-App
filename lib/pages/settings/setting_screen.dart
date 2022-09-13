@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vehicletracking/pages/auth/login.dart';
+import 'package:vehicletracking/pages/auth/sign_in.dart';
 import 'package:vehicletracking/pages/settings/change_password_screen.dart';
 import 'package:vehicletracking/pages/settings/edit_profile_screen.dart';
 import 'package:vehicletracking/pages/settings/history_screen.dart';
@@ -137,7 +137,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   height10,
                   commonRow(
                     ontap: () {
-                      Get.to(() => const LoginScreen());
+                      Get.to(() => const SignInScreen());
                     },
                     icon: AppAsset.logout,
                     text: 'Log Out',

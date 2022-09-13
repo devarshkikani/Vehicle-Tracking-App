@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vehicletracking/pages/auth/login.dart';
+import 'package:vehicletracking/pages/auth/sign_in.dart';
 import 'package:vehicletracking/pages/auth/set_password.dart';
 import 'package:vehicletracking/utils/app_colors.dart';
 import 'package:vehicletracking/utils/app_static_decoration.dart';
@@ -20,8 +20,6 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
-    var height = Get.height;
-    var width = Get.width;
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -38,92 +36,95 @@ class _SignUpScreenState extends State<SignUpScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
-      body: SafeArea(
-        child: Stack(
-          children: [
-            Positioned(
-                top: 0,
-                child: Container(
-                  height: Get.height,
-                  width: Get.width,
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage(
-                          AppAsset.bgGroundTop,
-                        ),
-                        fit: BoxFit.fill),
+      body: Stack(
+        children: [
+          Container(
+            height: Get.height,
+            width: Get.width,
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(
+                    AppAsset.bgGroundTop,
                   ),
-                )),
-            SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: Column(
-                children: [
-                  height15,
-                  const Text(
-                    "Let’s Get Started",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.w700,
+                  fit: BoxFit.fill),
+            ),
+          ),
+          SafeArea(
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    height15,
+                    const Text(
+                      "Let’s Get Started",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
-                  ),
-                  customHeight(3.0),
-                  const Text(
-                    "Create an account to get all features ",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 13.0,
-                      fontWeight: FontWeight.w400,
+                    customHeight(3.0),
+                    const Text(
+                      "Create an account to get all features ",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 13.0,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
-                  ),
-                  height20,
-                  const AppTextField(
-                    labelText: "First Name",
-                  ),
-                  height15,
-                  const AppTextField(
-                    labelText: "Last Name",
-                  ),
-                  height15,
-                  const AppTextField(
-                    labelText: "Company Name",
-                  ),
-                  height15,
-                  const AppTextField(
-                    labelText: "Company Address",
-                  ),
-                  height15,
-                  const AppTextField(
-                    labelText: "Mobile Number",
-                  ),
-                  height15,
-                  const AppTextField(
-                    labelText: "Whatsapp Number",
-                  ),
-                  height15,
-                  const AppTextField(
-                    labelText: "Email Address",
-                  ),
-                  height15,
-                  const AppTextField(
-                    labelText: "TRN (Tax Registration Number)",
-                  ),
-                  height15,
-                  AppFillButton(
-                      title: "Next".toUpperCase(),
-                      onTap: () {
-                        Get.to(() => const SetPassword());
-                      }),
-                  height15,
-                  appRichText("Already have an account?  ", "LogIn", onTap: () {
-                    Get.offAll(() => const LoginScreen());
-                  }),
-                  height20,
-                ],
+                    height20,
+                    const AppTextField(
+                      labelText: "First Name",
+                    ),
+                    height15,
+                    const AppTextField(
+                      labelText: "Last Name",
+                    ),
+                    height15,
+                    const AppTextField(
+                      labelText: "Company Name",
+                    ),
+                    height15,
+                    const AppTextField(
+                      labelText: "Company Address",
+                    ),
+                    height15,
+                    const AppTextField(
+                      labelText: "Mobile Number",
+                    ),
+                    height15,
+                    const AppTextField(
+                      labelText: "Whatsapp Number",
+                    ),
+                    height15,
+                    const AppTextField(
+                      labelText: "Email Address",
+                    ),
+                    height15,
+                    const AppTextField(
+                      labelText: "TRN (Tax Registration Number)",
+                    ),
+                    height15,
+                    AppFillButton(
+                        title: "Next".toUpperCase(),
+                        onTap: () {
+                          Get.to(() => const SetPassword());
+                        }),
+                    height15,
+                    appRichText("Already have an account?  ", "LogIn",
+                        onTap: () {
+                      Get.offAll(() => const SignInScreen());
+                    }),
+                    height20,
+                  ],
+                ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

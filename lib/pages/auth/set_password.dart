@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vehicletracking/pages/auth/login.dart';
+import 'package:vehicletracking/pages/auth/sign_in.dart';
 import 'package:vehicletracking/pages/subscribed/slot_details_screen.dart';
 import 'package:vehicletracking/utils/app_assets.dart';
 import 'package:vehicletracking/utils/app_colors.dart';
@@ -175,7 +175,7 @@ class _SetPasswordState extends State<SetPassword> {
                             decoration: TextDecoration.underline,
                             onTap: () {
                               Get.offAll(
-                                () => const LoginScreen(),
+                                () => const SignInScreen(),
                               );
                             },
                           ),

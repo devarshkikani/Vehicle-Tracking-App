@@ -23,46 +23,48 @@ class _SlotDetailsScreenState extends State<SlotDetailsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
+        // alignment: AlignmentDirectional.bottomCenter,
         children: [
-          SingleChildScrollView(
-            child: Stack(
-              children: [
-                Stack(
+          Image.asset(
+            AppAsset.bgGroundTop,
+            width: Get.width,
+            fit: BoxFit.fitWidth,
+            // height: Get.height,
+          ),
+          Image.asset(
+            AppAsset.logInImage3,
+            width: Get.width,
+            fit: BoxFit.fitWidth,
+            // height: Get.height,
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: SafeArea(
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Container(
-                      height: Get.height,
-                      width: Get.width,
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(
-                            AppAsset.bgGroundTop,
-                          ),
-                          fit: BoxFit.cover,
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            welcomeWidget(),
+                            height15,
+                            availableSlotsWidget(),
+                            height15,
+                            montlySubscriptionWidget(),
+                            height15,
+                            descriptionWidget(),
+                          ],
                         ),
                       ),
                     ),
-                    Image.asset(
-                      AppAsset.logInImage3,
-                      width: Get.width,
-                    ),
                   ],
                 ),
-                Padding(
-                  padding:
-                      const EdgeInsets.only(top: 230.0, left: 15, right: 15),
-                  child: Column(
-                    children: [
-                      welcomeWidget(),
-                      height15,
-                      availableSlotsWidget(),
-                      height15,
-                      montlySubscriptionWidget(),
-                      height15,
-                      descriptionWidget(),
-                    ],
-                  ),
-                ),
-              ],
+              ),
             ),
           ),
           SafeArea(

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vehicletracking/pages/auth/login.dart';
+import 'package:vehicletracking/pages/auth/sign_in.dart';
 import 'package:vehicletracking/utils/app_assets.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -71,7 +71,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
       Get.offAll(
-        () => const LoginScreen(),
+        () => const SignInScreen(),
       );
     });
   }
