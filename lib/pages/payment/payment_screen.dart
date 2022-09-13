@@ -54,61 +54,54 @@ class _PaymentScreenState extends State<PaymentScreen> {
                 fit: BoxFit.cover),
           ),
           child: Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20, top: 50),
+            padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
             child: SafeArea(
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Add a New Credit/Debit Card',
-                      style: AppTextStyle.normalRegular14
-                          .copyWith(color: whiteColor),
-                    ),
-                    height25,
-                    cardContainer(
-                        icon: AppAsset.creditCard,
-                        text: 'Credit Card',
-                        onTap: () {
-                          bottomSheet();
-                        }),
-                    height25,
-                    cardContainer(
-                        icon: AppAsset.debitCard,
-                        text: 'Debit Card',
-                        onTap: () {
-                          bottomSheet();
-                        }),
-                    customHeight(80),
-                    Text(
-                      'Saved Cards',
-                      style: AppTextStyle.normalRegular14
-                          .copyWith(color: whiteColor),
-                    ),
-                    height25,
-                    paymentContainer(
-                      icon: AppAsset.visa,
-                      text: 'VisaCard',
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Add a New Credit/Debit Card',
+                    style: AppTextStyle.normalRegular14
+                        .copyWith(color: whiteColor),
+                  ),
+                  height25,
+                  cardContainer(
+                      icon: AppAsset.creditCard,
+                      text: 'Credit Card',
                       onTap: () {
                         bottomSheet();
-                      },
-                    ),
-                    height25,
-                    paymentContainer(
-                      icon: AppAsset.masterCard,
-                      text: 'MasterCard',
+                      }),
+                  height25,
+                  cardContainer(
+                      icon: AppAsset.debitCard,
+                      text: 'Debit Card',
                       onTap: () {
                         bottomSheet();
-                      },
-                    ),
-                    height25,
-                    height25,
-                    height25,
-                    height25,
-                    height25,
-                  ],
-                ),
+                      }),
+                  customHeight(40),
+                  Text(
+                    'Saved Cards',
+                    style: AppTextStyle.normalRegular14
+                        .copyWith(color: whiteColor),
+                  ),
+                  height25,
+                  paymentContainer(
+                    icon: AppAsset.visa,
+                    text: 'VisaCard',
+                    onTap: () {
+                      bottomSheet();
+                    },
+                  ),
+                  height25,
+                  paymentContainer(
+                    icon: AppAsset.masterCard,
+                    text: 'MasterCard',
+                    onTap: () {
+                      bottomSheet();
+                    },
+                  ),
+                ],
               ),
             ),
           ),
