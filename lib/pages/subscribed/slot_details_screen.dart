@@ -51,6 +51,7 @@ class _SlotDetailsScreenState extends State<SlotDetailsScreen> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
+                            height15,
                             welcomeWidget(),
                             height15,
                             availableSlotsWidget(),

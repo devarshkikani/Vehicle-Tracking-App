@@ -53,7 +53,7 @@ class _SetPasswordState extends State<SetPassword> {
               padding: const EdgeInsets.symmetric(horizontal: 30.0),
               child: Column(
                 children: <Widget>[
-                  customHeight(350),
+                  customHeight(300),
                   Align(
                     alignment: Alignment.centerRight,
                     child: Column(

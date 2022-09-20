@@ -23,8 +23,7 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
-        height: Get.height,
+      body: SingleChildScrollView(
         child: Stack(
           children: [
             Stack(
@@ -49,8 +48,12 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                   ],
                 ),
                 Padding(
-                  padding:
-                      const EdgeInsets.only(left: 15, right: 15, bottom: 10),
+                  padding: const EdgeInsets.only(
+                    left: 15,
+                    right: 15,
+                    bottom: 10,
+                    top: 280,
+                  ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
@@ -78,7 +81,7 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                                 ),
                               ),
                               suffixIcon: const Padding(
-                                padding: EdgeInsets.all(12.0),
+                                padding: EdgeInsets.all(10.0),
                                 child: Icon(
                                   Icons.keyboard_arrow_down_outlined,
                                   color: blackColor,
@@ -92,9 +95,13 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                             ),
                             iconSize: 0.0,
                             hint: duration == null
-                                ? Text('Duration',
-                                    style: AppTextStyle.normalRegular14
-                                        .copyWith(color: greyColor))
+                                ? Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10.0),
+                                    child: Text('Duration',
+                                        style: AppTextStyle.normalRegular14
+                                            .copyWith(color: greyColor)),
+                                  )
                                 : Text(
                                     duration.toString(),
                                     style: const TextStyle(color: blackColor),
@@ -114,7 +121,7 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                                   value: val,
                                   child: Padding(
                                     padding: const EdgeInsets.symmetric(
-                                        horizontal: 20),
+                                        horizontal: 10),
                                     child: Text(val),
                                   ),
                                 );
@@ -146,7 +153,7 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                                 ),
                               ),
                               suffixIcon: const Padding(
-                                padding: EdgeInsets.all(12.0),
+                                padding: EdgeInsets.all(10.0),
                                 child: Icon(
                                   Icons.keyboard_arrow_down_outlined,
                                   color: blackColor,
@@ -160,9 +167,13 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                             ),
                             iconSize: 0.0,
                             hint: location == null
-                                ? Text('Location',
-                                    style: AppTextStyle.normalRegular14
-                                        .copyWith(color: greyColor))
+                                ? Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10.0),
+                                    child: Text('Location',
+                                        style: AppTextStyle.normalRegular14
+                                            .copyWith(color: greyColor)),
+                                  )
                                 : Text(
                                     location.toString(),
                                     style: const TextStyle(color: blackColor),
@@ -181,7 +192,7 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                                   value: val,
                                   child: Padding(
                                     padding: const EdgeInsets.symmetric(
-                                        horizontal: 20),
+                                        horizontal: 15),
                                     child: Text(val),
                                   ),
                                 );
@@ -227,9 +238,13 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                             ),
                             iconSize: 0.0,
                             hint: vehicleType == null
-                                ? Text('Vehicle Type',
-                                    style: AppTextStyle.normalRegular14
-                                        .copyWith(color: greyColor))
+                                ? Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10.0),
+                                    child: Text('Vehicle Type',
+                                        style: AppTextStyle.normalRegular14
+                                            .copyWith(color: greyColor)),
+                                  )
                                 : Text(
                                     vehicleType.toString(),
                                     style: const TextStyle(color: blackColor),
@@ -243,7 +258,7 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                                   value: val,
                                   child: Padding(
                                     padding: const EdgeInsets.symmetric(
-                                        horizontal: 20),
+                                        horizontal: 10),
                                     child: Text(val),
                                   ),
                                 );
@@ -289,9 +304,13 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                             ),
                             iconSize: 0.0,
                             hint: typeOfSlot == null
-                                ? Text('Type Of Slot',
-                                    style: AppTextStyle.normalRegular14
-                                        .copyWith(color: greyColor))
+                                ? Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 10.0),
+                                    child: Text('Type Of Slot',
+                                        style: AppTextStyle.normalRegular14
+                                            .copyWith(color: greyColor)),
+                                  )
                                 : Text(
                                     typeOfSlot.toString(),
                                     style: const TextStyle(color: blackColor),
@@ -305,7 +324,7 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                                   value: val,
                                   child: Padding(
                                     padding: const EdgeInsets.symmetric(
-                                        horizontal: 20),
+                                        horizontal: 10),
                                     child: Text(val),
                                   ),
                                 );
@@ -322,71 +341,23 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                         ),
                       ),
                       height20,
-                      DropdownButtonHideUnderline(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: DropdownButtonFormField(
-                            decoration: InputDecoration(
-                              label: Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 10),
-                                child: Text(
-                                  'Slot Quantity*',
-                                  style: AppTextStyle.normalRegular14
-                                      .copyWith(color: greyColor, fontSize: 16),
-                                ),
-                              ),
-                              suffixIcon: const Padding(
-                                padding: EdgeInsets.all(12.0),
-                                child: Icon(
-                                  Icons.keyboard_arrow_down_outlined,
-                                  color: blackColor,
-                                ),
-                              ),
-                              border: const OutlineInputBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(15.0),
-                                ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: TextFormField(
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                            label: const Text('Slot Quantity*'),
+                            contentPadding: const EdgeInsets.all(
+                              20,
+                            ),
+                            hintText: 'Slot Quantity',
+                            hintStyle: AppTextStyle.normalRegular14
+                                .copyWith(color: greyColor),
+                            border: const OutlineInputBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(15.0),
                               ),
                             ),
-                            iconSize: 0.0,
-                            isDense: true,
-                            hint: qty == null
-                                ? Text('Slot Quantity',
-                                    style: AppTextStyle.normalRegular14
-                                        .copyWith(color: greyColor))
-                                : Text(
-                                    qty.toString(),
-                                    style: const TextStyle(color: blackColor),
-                                  ),
-                            isExpanded: true,
-                            borderRadius: BorderRadius.circular(30),
-                            style: const TextStyle(color: blackColor),
-                            items: [
-                              '1',
-                              '2',
-                              '3',
-                              '4',
-                              '5',
-                            ].map(
-                              (val) {
-                                return DropdownMenuItem<String>(
-                                  value: val,
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 20),
-                                    child: Text(val),
-                                  ),
-                                );
-                              },
-                            ).toList(),
-                            onChanged: (val) {
-                              setState(
-                                () {
-                                  qty = val.toString();
-                                },
-                              );
-                            },
                           ),
                         ),
                       ),

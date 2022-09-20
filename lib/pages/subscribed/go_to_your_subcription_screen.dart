@@ -54,7 +54,7 @@ class _GotoYourSubscriptionScreenState
                 ),
                 Padding(
                   padding:
-                      const EdgeInsets.only(top: 300.0, left: 15, right: 15),
+                      const EdgeInsets.only(top: 310.0, left: 15, right: 15),
                   child: Column(
                     children: <Widget>[
                       const Align(
@@ -303,14 +303,14 @@ class _GotoYourSubscriptionScreenState
               borderRadius: BorderRadius.circular(5),
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 const Icon(
                   Icons.remove,
                 ),
-                const SizedBox(
-                  width: 15,
-                ),
+                // const SizedBox(
+                //   width: 15,
+                // ),
                 Text(
                   'Remove Slot',
                   style: AppTextStyle.normalRegular16.copyWith(
@@ -336,14 +336,14 @@ class _GotoYourSubscriptionScreenState
               borderRadius: BorderRadius.circular(5),
             ),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 const Icon(
                   Icons.add,
                 ),
-                const SizedBox(
-                  width: 15,
-                ),
+                // const SizedBox(
+                //   width: 15,
+                // ),
                 Text(
                   'Add Slot',
                   style: AppTextStyle.normalRegular16.copyWith(
@@ -616,24 +616,28 @@ class _GotoYourSubscriptionScreenState
                       const SizedBox(
                         width: 10,
                       ),
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: 'I Agree to the ',
-                              style: AppTextStyle.normalRegular16.copyWith(
-                                color: greyColor,
+                      Expanded(
+                        child: RichText(
+                          maxLines: 2,
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                text: 'I Agree to the ',
+                                style: AppTextStyle.normalRegular16.copyWith(
+                                  color: greyColor,
+                                ),
                               ),
-                            ),
-                            TextSpan(
-                              text: 'Terms & Conditions',
-                              style: AppTextStyle.normalRegular16.copyWith(
-                                color: appColor,
-                                decoration: TextDecoration.underline,
+                              TextSpan(
+                                text: 'Terms & Conditions',
+                                style: AppTextStyle.normalRegular16.copyWith(
+                                  color: appColor,
+                                  decoration: TextDecoration.underline,
+                                ),
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {},
                               ),
-                              recognizer: TapGestureRecognizer()..onTap = () {},
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ],
