@@ -318,7 +318,7 @@ class _SubScriptionScreenState extends State<SubScriptionScreen> {
                             isExpanded: true,
                             borderRadius: BorderRadius.circular(30),
                             style: const TextStyle(color: blackColor),
-                            items: ['Reserverd', 'Not Reserved'].map(
+                            items: ['Reserverd', 'Open'].map(
                               (val) {
                                 return DropdownMenuItem<String>(
                                   value: val,
