@@ -11,7 +11,7 @@ class AppTextStyle {
   );
 
   static const normalSemiBold12 = TextStyle(
-    fontSize: 14.0,
+    fontSize: 12.0,
     fontWeight: FontWeight.w600,
     color: blackColor,
   );
@@ -46,6 +46,18 @@ class AppTextStyle {
 
   static const bold20 = TextStyle(
     fontSize: 20.0,
+    fontWeight: FontWeight.bold,
+    color: blackColor,
+  );
+
+  static const bold14 = TextStyle(
+    fontSize: 14.0,
+    fontWeight: FontWeight.bold,
+    color: blackColor,
+  );
+
+  static const bold16 = TextStyle(
+    fontSize: 16.0,
     fontWeight: FontWeight.bold,
     color: blackColor,
   );

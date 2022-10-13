@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:vehicletracking/pages/payment/payment_screen.dart';
+import 'package:vehicletracking/pages/order/order_summary_screen.dart';
 import 'package:vehicletracking/utils/app_assets.dart';
 import 'package:vehicletracking/utils/app_colors.dart';
 import 'package:vehicletracking/utils/app_static_decoration.dart';
@@ -126,7 +126,7 @@ class _ChoosePlanScreenState extends State<ChoosePlanScreen> {
                                             Text(
                                               '2 Access Controls Added',
                                               style: AppTextStyle
-                                                  .normalSemiBold12
+                                                  .normalSemiBold14
                                                   .copyWith(
                                                 color: whiteColor,
                                               ),
@@ -260,7 +260,7 @@ class _ChoosePlanScreenState extends State<ChoosePlanScreen> {
                                             Text(
                                               '2 Access Controls Added',
                                               style: AppTextStyle
-                                                  .normalSemiBold12
+                                                  .normalSemiBold14
                                                   .copyWith(
                                                 color: whiteColor,
                                               ),
@@ -444,7 +444,7 @@ class _ChoosePlanScreenState extends State<ChoosePlanScreen> {
                       child: AppFillButton(
                         radius: 10,
                         onTap: () {
-                          Get.to(() => const PaymentScreen());
+                          Get.to(() => const OrderSummaryScreen());
                         },
                         title: "Check Out",
                       ),
@@ -614,21 +614,21 @@ class _ChoosePlanScreenState extends State<ChoosePlanScreen> {
           child: Text(
             'Accessories',
             textAlign: TextAlign.center,
-            style: AppTextStyle.normalSemiBold12.copyWith(color: greyColor),
+            style: AppTextStyle.normalSemiBold14.copyWith(color: greyColor),
           ),
         ),
         Expanded(
           child: Text(
             'Deposite',
             textAlign: TextAlign.center,
-            style: AppTextStyle.normalSemiBold12.copyWith(color: greyColor),
+            style: AppTextStyle.normalSemiBold14.copyWith(color: greyColor),
           ),
         ),
         Expanded(
           child: Text(
             'Refunded Amount',
             textAlign: TextAlign.center,
-            style: AppTextStyle.normalSemiBold12.copyWith(color: greyColor),
+            style: AppTextStyle.normalSemiBold14.copyWith(color: greyColor),
           ),
         ),
       ],

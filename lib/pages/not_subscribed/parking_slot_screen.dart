@@ -98,8 +98,7 @@ class _ParkingSlotScreenState extends State<ParkingSlotScreen> {
                       alignment: Alignment.topCenter,
                       child: GridView.builder(
                           itemCount: parkingList.length,
-                          // shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           padding: EdgeInsets.zero,
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(

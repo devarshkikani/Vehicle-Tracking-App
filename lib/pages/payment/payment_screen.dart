@@ -26,36 +26,36 @@ class _PaymentScreenState extends State<PaymentScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          elevation: 0.0,
-          backgroundColor: Colors.transparent,
-          centerTitle: true,
-          title: Text(
-            'Payment Options',
-            style: AppTextStyle.normalSemiBold16.copyWith(color: whiteColor),
-          ),
-          leading: GestureDetector(
-            onTap: () {
-              Get.back();
-            },
-            child: const Icon(
-              Icons.arrow_back,
-              color: whiteColor,
-            ),
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+        centerTitle: true,
+        title: Text(
+          'Payment Options',
+          style: AppTextStyle.normalSemiBold16.copyWith(color: whiteColor),
+        ),
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: const Icon(
+            Icons.arrow_back,
+            color: whiteColor,
           ),
         ),
-        body: Container(
-          height: Get.height,
-          width: Get.width,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(AppAsset.paymentbackground),
-                fit: BoxFit.cover),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
-            child: SafeArea(
+      ),
+      body: Container(
+        height: Get.height,
+        width: Get.width,
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(AppAsset.paymentbackground), fit: BoxFit.cover),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+          child: SafeArea(
+            child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -105,14 +105,15 @@ class _PaymentScreenState extends State<PaymentScreen> {
               ),
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 
   Future bottomSheet() {
     return showModalBottomSheet(
         context: context,
         isScrollControlled: true,
-        // constraints: BoxConstraints(maxHeight: Get.height / 1.5),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(30), topRight: Radius.circular(30)),
