@@ -17,121 +17,145 @@ class _HistoryScreenState extends State<HistoryScreen> {
   List historyTransction = [
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
     {
       'Date': '21/07/2022',
+      'end_date': '16/02/2023',
       'Time': '6 MOnth',
       'Price': '4000/-',
     },
@@ -187,10 +211,22 @@ class _HistoryScreenState extends State<HistoryScreen> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      historyTransction[index]['Date'],
-                                      style: AppTextStyle.normalSemiBold16,
+                                    Row(
+                                      children: [
+                                        Text(
+                                          historyTransction[index]['Date'],
+                                          style: AppTextStyle.normalSemiBold16,
+                                        ),
+                                        Text(
+                                          ' - ',
+                                        ),
+                                        Text(
+                                          historyTransction[index]['end_date'],
+                                          style: AppTextStyle.normalSemiBold16,
+                                        ),
+                                      ],
                                     ),
                                     height05,
                                     Text(
