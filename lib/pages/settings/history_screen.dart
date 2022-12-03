@@ -219,7 +219,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
                                           historyTransction[index]['Date'],
                                           style: AppTextStyle.normalSemiBold16,
                                         ),
-                                        Text(
+                                        const Text(
                                           ' - ',
                                         ),
                                         Text(
