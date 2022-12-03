@@ -19,6 +19,8 @@ class SlotDetailsScreen extends StatefulWidget {
 }
 
 class _SlotDetailsScreenState extends State<SlotDetailsScreen> {
+  List<String> items = ["Surat", "Mumbai", "Kolkata", "Delhi"];
+  String? selectedItem;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,17 +108,43 @@ class _SlotDetailsScreenState extends State<SlotDetailsScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           const Text(
-            'Welcome!',
+            'Welcome, User!',
             style: AppTextStyle.normalSemiBold20,
           ),
           const SizedBox(
             height: 5,
           ),
-          Text(
-            'Mansi...',
-            style: AppTextStyle.normalRegular14.copyWith(
-              color: greyColor,
-            ),
+          Row(
+            children: [
+              Expanded(
+                child: DropdownButton<String>(
+                  value: selectedItem,
+                  isExpanded: true,
+                  hint: Text(
+                    'Location...',
+                    style: AppTextStyle.normalRegular14.copyWith(
+                      color: greyColor,
+                    ),
+                  ),
+                  underline: const SizedBox(),
+                  onChanged: (value) {
+                    setState(() {
+                      selectedItem = value!;
+                    });
+                  },
+                  items: items
+                      .map<DropdownMenuItem<String>>(
+                        (String value) => DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(
+                            value,
+                          ),
+                        ),
+                      )
+                      .toList(),
+                ),
+              ),
+            ],
           ),
         ],
       ),
