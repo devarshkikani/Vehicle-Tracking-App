@@ -61,325 +61,323 @@ class _ChoosePlanScreenState extends State<ChoosePlanScreen> {
                               ),
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 10, vertical: 10),
-                              child: PageView.builder(
-                                itemCount: 2,
-                                controller: controller,
-                                onPageChanged: (index) {
-                                  selectedIndex.value = index;
-                                  setState(() {});
-                                },
-                                itemBuilder:
-                                    (BuildContext context, int index) =>
-                                        <Widget>[
-                                  Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      height20,
-                                      Container(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 20, vertical: 5),
-                                        decoration: BoxDecoration(
-                                            color: whiteColor.withOpacity(0.14),
-                                            borderRadius:
-                                                BorderRadius.circular(30)),
-                                        child: Text(
-                                          'Silver',
-                                          style: AppTextStyle.normalRegular14
-                                              .copyWith(color: greyColor),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  height20,
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 20, vertical: 5),
+                                    decoration: BoxDecoration(
+                                        color: whiteColor.withOpacity(0.14),
+                                        borderRadius:
+                                            BorderRadius.circular(30)),
+                                    child: Text(
+                                      'Silver',
+                                      style: AppTextStyle.normalRegular14
+                                          .copyWith(color: greyColor),
+                                    ),
+                                  ),
+                                  height20,
+                                  Text(
+                                    '600/-',
+                                    style: AppTextStyle.normalSemiBold20
+                                        .copyWith(
+                                            fontSize: 35, color: appColor),
+                                  ),
+                                  height10,
+                                  Text(
+                                    'Monthly',
+                                    style: AppTextStyle.normalRegular14
+                                        .copyWith(color: greyColor),
+                                  ),
+                                  if (accessControlsAdded.value) height20,
+                                  if (accessControlsAdded.value)
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          height: 18,
+                                          width: 18,
+                                          decoration: const BoxDecoration(
+                                            color: appColor,
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: const Icon(
+                                            Icons.add_rounded,
+                                            color: whiteColor,
+                                            size: 16,
+                                          ),
                                         ),
-                                      ),
-                                      height20,
-                                      Text(
-                                        '600/-',
-                                        style: AppTextStyle.normalSemiBold20
-                                            .copyWith(
-                                                fontSize: 35, color: appColor),
-                                      ),
-                                      height10,
-                                      Text(
-                                        'Monthly',
-                                        style: AppTextStyle.normalRegular14
-                                            .copyWith(color: greyColor),
-                                      ),
-                                      if (accessControlsAdded.value) height20,
-                                      if (accessControlsAdded.value)
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Container(
-                                              height: 18,
-                                              width: 18,
-                                              decoration: const BoxDecoration(
-                                                color: appColor,
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: const Icon(
-                                                Icons.add_rounded,
-                                                color: whiteColor,
-                                                size: 16,
-                                              ),
+                                        width15,
+                                        Text(
+                                          '2 Access Controls Added',
+                                          style: AppTextStyle.normalSemiBold14
+                                              .copyWith(
+                                            color: whiteColor,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  customHeight(30),
+                                  Text(
+                                    'All Parking Services',
+                                    textAlign: TextAlign.center,
+                                    style: AppTextStyle.normalRegular14
+                                        .copyWith(
+                                            color: greyColor, fontSize: 16),
+                                  ),
+                                  height05,
+                                  Text(
+                                    'Subscription Features will show here',
+                                    textAlign: TextAlign.center,
+                                    style: AppTextStyle.normalRegular14
+                                        .copyWith(
+                                            color: greyColor, fontSize: 16),
+                                  ),
+                                  height05,
+                                  Text(
+                                    'Features will show here',
+                                    textAlign: TextAlign.center,
+                                    style: AppTextStyle.normalRegular14
+                                        .copyWith(
+                                            color: greyColor, fontSize: 16),
+                                  ),
+                                  height05,
+                                  Text(
+                                    'All Parking Services',
+                                    textAlign: TextAlign.center,
+                                    style: AppTextStyle.normalRegular14
+                                        .copyWith(
+                                            color: greyColor, fontSize: 16),
+                                  ),
+                                  customHeight(50),
+                                  Center(
+                                    child: GestureDetector(
+                                      onTap: () {
+                                        showAddDialog();
+                                      },
+                                      child: Obx(
+                                        () => Container(
+                                          height: 50,
+                                          width: 200,
+                                          decoration: BoxDecoration(
+                                            color: accessControlsAdded.value
+                                                ? null
+                                                : appColor,
+                                            border: Border.all(
+                                              color: accessControlsAdded.value
+                                                  ? appColor
+                                                  : Colors.transparent,
                                             ),
-                                            width15,
-                                            Text(
-                                              '2 Access Controls Added',
+                                            borderRadius:
+                                                BorderRadius.circular(30),
+                                          ),
+                                          child: Center(
+                                            child: Text(
+                                              'Add Access Controls',
                                               style: AppTextStyle
-                                                  .normalSemiBold14
+                                                  .normalSemiBold16
                                                   .copyWith(
                                                 color: whiteColor,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      customHeight(30),
-                                      Text(
-                                        'All Parking Services',
-                                        textAlign: TextAlign.center,
-                                        style: AppTextStyle.normalRegular14
-                                            .copyWith(
-                                                color: greyColor, fontSize: 16),
-                                      ),
-                                      height05,
-                                      Text(
-                                        'Subscription Features will show here',
-                                        textAlign: TextAlign.center,
-                                        style: AppTextStyle.normalRegular14
-                                            .copyWith(
-                                                color: greyColor, fontSize: 16),
-                                      ),
-                                      height05,
-                                      Text(
-                                        'Features will show here',
-                                        textAlign: TextAlign.center,
-                                        style: AppTextStyle.normalRegular14
-                                            .copyWith(
-                                                color: greyColor, fontSize: 16),
-                                      ),
-                                      height05,
-                                      Text(
-                                        'All Parking Services',
-                                        textAlign: TextAlign.center,
-                                        style: AppTextStyle.normalRegular14
-                                            .copyWith(
-                                                color: greyColor, fontSize: 16),
-                                      ),
-                                      customHeight(50),
-                                      Center(
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            showAddDialog();
-                                          },
-                                          child: Obx(
-                                            () => Container(
-                                              height: 50,
-                                              width: 200,
-                                              decoration: BoxDecoration(
-                                                color: accessControlsAdded.value
-                                                    ? null
-                                                    : appColor,
-                                                border: Border.all(
-                                                  color:
-                                                      accessControlsAdded.value
-                                                          ? appColor
-                                                          : Colors.transparent,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(30),
-                                              ),
-                                              child: Center(
-                                                child: Text(
-                                                  'Add Access Controls',
-                                                  style: AppTextStyle
-                                                      .normalSemiBold16
-                                                      .copyWith(
-                                                    color: whiteColor,
-                                                  ),
-                                                ),
                                               ),
                                             ),
                                           ),
                                         ),
                                       ),
-                                      height15,
-                                    ],
+                                    ),
                                   ),
-                                  Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      height20,
-                                      Container(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 20, vertical: 5),
-                                        decoration: BoxDecoration(
-                                            color: whiteColor.withOpacity(0.14),
-                                            borderRadius:
-                                                BorderRadius.circular(30)),
-                                        child: Text(
-                                          'Gold',
-                                          style: AppTextStyle.normalRegular14
-                                              .copyWith(color: greyColor),
-                                        ),
-                                      ),
-                                      height20,
-                                      Text(
-                                        '4000/-',
-                                        style: AppTextStyle.normalSemiBold20
-                                            .copyWith(
-                                                fontSize: 35, color: appColor),
-                                      ),
-                                      height10,
-                                      Text(
-                                        'Yearly',
-                                        style: AppTextStyle.normalRegular14
-                                            .copyWith(color: greyColor),
-                                      ),
-                                      if (accessControlsAdded.value) height20,
-                                      if (accessControlsAdded.value)
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Container(
-                                              height: 18,
-                                              width: 18,
-                                              decoration: const BoxDecoration(
-                                                color: appColor,
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: const Icon(
-                                                Icons.add_rounded,
-                                                color: whiteColor,
-                                                size: 16,
-                                              ),
-                                            ),
-                                            width15,
-                                            Text(
-                                              '2 Access Controls Added',
-                                              style: AppTextStyle
-                                                  .normalSemiBold14
-                                                  .copyWith(
-                                                color: whiteColor,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      customHeight(30),
-                                      Text(
-                                        'All Parking Services',
-                                        style: AppTextStyle.normalRegular14
-                                            .copyWith(
-                                                color: greyColor, fontSize: 16),
-                                      ),
-                                      height05,
-                                      Text(
-                                        'Subscription Features will show here',
-                                        style: AppTextStyle.normalRegular14
-                                            .copyWith(
-                                                color: greyColor, fontSize: 16),
-                                      ),
-                                      height05,
-                                      Text(
-                                        'Features will show here',
-                                        style: AppTextStyle.normalRegular14
-                                            .copyWith(
-                                                color: greyColor, fontSize: 16),
-                                      ),
-                                      height05,
-                                      Text(
-                                        'All Parking Services',
-                                        style: AppTextStyle.normalRegular14
-                                            .copyWith(
-                                                color: greyColor, fontSize: 16),
-                                      ),
-                                      customHeight(50),
-                                      Center(
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            showAddDialog();
-                                          },
-                                          child: Obx(
-                                            () => Container(
-                                              height: 50,
-                                              width: 200,
-                                              decoration: BoxDecoration(
-                                                color: accessControlsAdded.value
-                                                    ? null
-                                                    : appColor,
-                                                border: Border.all(
-                                                  color:
-                                                      accessControlsAdded.value
-                                                          ? appColor
-                                                          : Colors.transparent,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(30),
-                                              ),
-                                              child: Center(
-                                                child: Text(
-                                                  'Add Access Controls',
-                                                  style: AppTextStyle
-                                                      .normalSemiBold16
-                                                      .copyWith(
-                                                    color: whiteColor,
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                      height15,
-                                    ],
-                                  ),
-                                ][index],
+                                  height15,
+                                ],
                               ),
+
+                              // child: PageView.builder(
+                              //   itemCount: 2,
+                              //   controller: controller,
+                              //   onPageChanged: (index) {
+                              //     selectedIndex.value = index;
+                              //     setState(() {});
+                              //   },
+                              //   itemBuilder:
+                              //       (BuildContext context, int index) =>
+                              //           <Widget>[
+                              //     Column(
+                              //       mainAxisSize: MainAxisSize.min,
+                              //       crossAxisAlignment:
+                              //           CrossAxisAlignment.center,
+                              //       children: [
+                              //         height20,
+                              //         Container(
+                              //           padding: const EdgeInsets.symmetric(
+                              //               horizontal: 20, vertical: 5),
+                              //           decoration: BoxDecoration(
+                              //               color: whiteColor.withOpacity(0.14),
+                              //               borderRadius:
+                              //                   BorderRadius.circular(30)),
+                              //           child: Text(
+                              //             'Gold',
+                              //             style: AppTextStyle.normalRegular14
+                              //                 .copyWith(color: greyColor),
+                              //           ),
+                              //         ),
+                              //         height20,
+                              //         Text(
+                              //           '4000/-',
+                              //           style: AppTextStyle.normalSemiBold20
+                              //               .copyWith(
+                              //                   fontSize: 35, color: appColor),
+                              //         ),
+                              //         height10,
+                              //         Text(
+                              //           'Yearly',
+                              //           style: AppTextStyle.normalRegular14
+                              //               .copyWith(color: greyColor),
+                              //         ),
+                              //         if (accessControlsAdded.value) height20,
+                              //         if (accessControlsAdded.value)
+                              //           Row(
+                              //             mainAxisAlignment:
+                              //                 MainAxisAlignment.center,
+                              //             children: [
+                              //               Container(
+                              //                 height: 18,
+                              //                 width: 18,
+                              //                 decoration: const BoxDecoration(
+                              //                   color: appColor,
+                              //                   shape: BoxShape.circle,
+                              //                 ),
+                              //                 child: const Icon(
+                              //                   Icons.add_rounded,
+                              //                   color: whiteColor,
+                              //                   size: 16,
+                              //                 ),
+                              //               ),
+                              //               width15,
+                              //               Text(
+                              //                 '2 Access Controls Added',
+                              //                 style: AppTextStyle
+                              //                     .normalSemiBold14
+                              //                     .copyWith(
+                              //                   color: whiteColor,
+                              //                 ),
+                              //               ),
+                              //             ],
+                              //           ),
+                              //         customHeight(30),
+                              //         Text(
+                              //           'All Parking Services',
+                              //           style: AppTextStyle.normalRegular14
+                              //               .copyWith(
+                              //                   color: greyColor, fontSize: 16),
+                              //         ),
+                              //         height05,
+                              //         Text(
+                              //           'Subscription Features will show here',
+                              //           style: AppTextStyle.normalRegular14
+                              //               .copyWith(
+                              //                   color: greyColor, fontSize: 16),
+                              //         ),
+                              //         height05,
+                              //         Text(
+                              //           'Features will show here',
+                              //           style: AppTextStyle.normalRegular14
+                              //               .copyWith(
+                              //                   color: greyColor, fontSize: 16),
+                              //         ),
+                              //         height05,
+                              //         Text(
+                              //           'All Parking Services',
+                              //           style: AppTextStyle.normalRegular14
+                              //               .copyWith(
+                              //                   color: greyColor, fontSize: 16),
+                              //         ),
+                              //         customHeight(50),
+                              //         Center(
+                              //           child: GestureDetector(
+                              //             onTap: () {
+                              //               showAddDialog();
+                              //             },
+                              //             child: Obx(
+                              //               () => Container(
+                              //                 height: 50,
+                              //                 width: 200,
+                              //                 decoration: BoxDecoration(
+                              //                   color: accessControlsAdded.value
+                              //                       ? null
+                              //                       : appColor,
+                              //                   border: Border.all(
+                              //                     color:
+                              //                         accessControlsAdded.value
+                              //                             ? appColor
+                              //                             : Colors.transparent,
+                              //                   ),
+                              //                   borderRadius:
+                              //                       BorderRadius.circular(30),
+                              //                 ),
+                              //                 child: Center(
+                              //                   child: Text(
+                              //                     'Add Access Controls',
+                              //                     style: AppTextStyle
+                              //                         .normalSemiBold16
+                              //                         .copyWith(
+                              //                       color: whiteColor,
+                              //                     ),
+                              //                   ),
+                              //                 ),
+                              //               ),
+                              //             ),
+                              //           ),
+                              //         ),
+                              //         height15,
+                              //       ],
+                              //     ),
+                              //   ][index],
+                              // ),
                             ),
-                            if (selectedIndex.value > 0)
-                              Positioned(
-                                bottom: 230,
-                                left: -20,
-                                child: InkWell(
-                                  onTap: previousPage,
-                                  child: Container(
-                                    height: 40,
-                                    width: 40,
-                                    decoration: const BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: appColor),
-                                    child: const Center(
-                                      child: Icon(
-                                        Icons.arrow_back_ios_rounded,
-                                        color: whiteColor,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            if (selectedIndex.value <= 0)
-                              Positioned(
-                                bottom: 230,
-                                right: -20,
-                                child: InkWell(
-                                  onTap: nextPage,
-                                  child: Container(
-                                    height: 40,
-                                    width: 40,
-                                    decoration: const BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: appColor),
-                                    child: const Center(
-                                      child: Icon(
-                                        Icons.arrow_forward_ios_rounded,
-                                        color: whiteColor,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
+                            // if (selectedIndex.value > 0)
+                            //   Positioned(
+                            //     bottom: 230,
+                            //     left: -20,
+                            //     child: InkWell(
+                            //       onTap: previousPage,
+                            //       child: Container(
+                            //         height: 40,
+                            //         width: 40,
+                            //         decoration: const BoxDecoration(
+                            //             shape: BoxShape.circle,
+                            //             color: appColor),
+                            //         child: const Center(
+                            //           child: Icon(
+                            //             Icons.arrow_back_ios_rounded,
+                            //             color: whiteColor,
+                            //           ),
+                            //         ),
+                            //       ),
+                            //     ),
+                            //   ),
+                            // if (selectedIndex.value <= 0)
+                            //   Positioned(
+                            //     bottom: 230,
+                            //     right: -20,
+                            //     child: InkWell(
+                            //       onTap: nextPage,
+                            //       child: Container(
+                            //         height: 40,
+                            //         width: 40,
+                            //         decoration: const BoxDecoration(
+                            //             shape: BoxShape.circle,
+                            //             color: appColor),
+                            //         child: const Center(
+                            //           child: Icon(
+                            //             Icons.arrow_forward_ios_rounded,
+                            //             color: whiteColor,
+                            //           ),
+                            //         ),
+                            //       ),
+                            //     ),
+                            //   ),
                             Positioned(
                               bottom: -20,
                               child: Obx(
@@ -413,31 +411,31 @@ class _ChoosePlanScreenState extends State<ChoosePlanScreen> {
                         ),
                       ],
                     ),
-                    customHeight(50),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        2,
-                        (index) {
-                          return Container(
-                            height: 15,
-                            width: 15,
-                            margin: const EdgeInsets.symmetric(horizontal: 5),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: selectedIndex.value != index
-                                    ? appColor
-                                    : whiteColor,
-                              ),
-                              shape: BoxShape.circle,
-                              color: selectedIndex.value == index
-                                  ? appColor
-                                  : whiteColor,
-                            ),
-                          );
-                        },
-                      ),
-                    ),
+                    customHeight(30),
+                    // Row(
+                    //   mainAxisAlignment: MainAxisAlignment.center,
+                    //   children: List.generate(
+                    //     2,
+                    //     (index) {
+                    //       return Container(
+                    //         height: 15,
+                    //         width: 15,
+                    //         margin: const EdgeInsets.symmetric(horizontal: 5),
+                    //         decoration: BoxDecoration(
+                    //           border: Border.all(
+                    //             color: selectedIndex.value != index
+                    //                 ? appColor
+                    //                 : whiteColor,
+                    //           ),
+                    //           shape: BoxShape.circle,
+                    //           color: selectedIndex.value == index
+                    //               ? appColor
+                    //               : whiteColor,
+                    //         ),
+                    //       );
+                    //     },
+                    //   ),
+                    // ),
                     customHeight(20),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -494,21 +492,21 @@ class _ChoosePlanScreenState extends State<ChoosePlanScreen> {
     );
   }
 
-  void nextPage() {
-    controller.nextPage(
-      duration: const Duration(milliseconds: 400),
-      curve: Curves.easeIn,
-    );
-    setState(() {});
-  }
+  // void nextPage() {
+  //   controller.nextPage(
+  //     duration: const Duration(milliseconds: 400),
+  //     curve: Curves.easeIn,
+  //   );
+  //   setState(() {});
+  // }
 
-  void previousPage() {
-    controller.previousPage(
-      duration: const Duration(milliseconds: 400),
-      curve: Curves.easeIn,
-    );
-    setState(() {});
-  }
+  // void previousPage() {
+  //   controller.previousPage(
+  //     duration: const Duration(milliseconds: 400),
+  //     curve: Curves.easeIn,
+  //   );
+  //   setState(() {});
+  // }
 
   void showAddDialog() {
     showDialog(
