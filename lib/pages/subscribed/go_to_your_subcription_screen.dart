@@ -147,6 +147,34 @@ class _GotoYourSubscriptionScreenState
                     SizedBox(
                       width: Get.width / 3,
                       child: Text(
+                        'End Date',
+                        style: AppTextStyle.normalSemiBold16.copyWith(
+                          color: greyColor,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: Get.width / 3,
+                      child: TextField(
+                        enabled: false,
+                        style: AppTextStyle.normalRegular14,
+                        controller: TextEditingController(text: '23/5/2023'),
+                        textAlign: TextAlign.center,
+                        decoration: const InputDecoration(
+                          isDense: true,
+                          contentPadding: EdgeInsets.zero,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                height25,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: Get.width / 3,
+                      child: Text(
                         'Amount',
                         style: AppTextStyle.normalSemiBold16.copyWith(
                           color: greyColor,
