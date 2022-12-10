@@ -72,16 +72,14 @@ class _SlotDetailsScreenState extends State<SlotDetailsScreen> {
           ),
           SafeArea(
             child: Align(
-              alignment: Alignment.topLeft,
+              alignment: Alignment.topRight,
               child: Padding(
-                padding: const EdgeInsets.all(15),
+                padding: const EdgeInsets.all(20),
                 child: GestureDetector(
                   onTap: () {
-                    Get.back();
+                    Get.to(() => const SettingScreen());
                   },
-                  child: const Icon(
-                    Icons.arrow_back_rounded,
-                  ),
+                  child: Image.asset(AppAsset.drawerIcon),
                 ),
               ),
             ),

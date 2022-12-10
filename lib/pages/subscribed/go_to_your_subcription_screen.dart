@@ -147,34 +147,6 @@ class _GotoYourSubscriptionScreenState
                     SizedBox(
                       width: Get.width / 3,
                       child: Text(
-                        'End Date',
-                        style: AppTextStyle.normalSemiBold16.copyWith(
-                          color: greyColor,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: Get.width / 3,
-                      child: TextField(
-                        enabled: false,
-                        style: AppTextStyle.normalRegular14,
-                        controller: TextEditingController(text: '23/5/2023'),
-                        textAlign: TextAlign.center,
-                        decoration: const InputDecoration(
-                          isDense: true,
-                          contentPadding: EdgeInsets.zero,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                height25,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      width: Get.width / 3,
-                      child: Text(
                         'Amount',
                         style: AppTextStyle.normalSemiBold16.copyWith(
                           color: greyColor,
@@ -201,9 +173,9 @@ class _GotoYourSubscriptionScreenState
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
-                      width: Get.width / 3,
+                      width: Get.width / 2.5,
                       child: Text(
-                        'Parking Number',
+                        'Amount Deposited',
                         style: AppTextStyle.normalSemiBold16.copyWith(
                           color: greyColor,
                         ),
@@ -214,7 +186,7 @@ class _GotoYourSubscriptionScreenState
                       child: TextField(
                         enabled: false,
                         style: AppTextStyle.normalRegular14,
-                        controller: TextEditingController(text: 'B1-02'),
+                        controller: TextEditingController(text: '2000/-'),
                         textAlign: TextAlign.center,
                         decoration: const InputDecoration(
                           isDense: true,
@@ -225,6 +197,34 @@ class _GotoYourSubscriptionScreenState
                   ],
                 ),
                 height25,
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //   children: [
+                //     SizedBox(
+                //       width: Get.width / 3,
+                //       child: Text(
+                //         'Parking Number',
+                //         style: AppTextStyle.normalSemiBold16.copyWith(
+                //           color: greyColor,
+                //         ),
+                //       ),
+                //     ),
+                //     SizedBox(
+                //       width: Get.width / 3,
+                //       child: TextField(
+                //         enabled: false,
+                //         style: AppTextStyle.normalRegular14,
+                //         controller: TextEditingController(text: 'B1-02'),
+                //         textAlign: TextAlign.center,
+                //         decoration: const InputDecoration(
+                //           isDense: true,
+                //           contentPadding: EdgeInsets.zero,
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
+                // height25,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
